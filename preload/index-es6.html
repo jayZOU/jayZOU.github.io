@@ -16,13 +16,13 @@
 
 	
 	
-	<audio pSrc="../public/audio/a.mp3" preload="auto" controls></audio>
-	<audio pSrc="../public/audio/b.mp3" preload="auto" controls></audio>
+	<audio pSrc="./audio/a.mp3" preload="auto" controls></audio>
+	<audio pSrc="./audio/b.mp3" preload="auto" controls></audio>
 
-	<img pSrc="../public/image/b1.jpg" alt="">
-	<img pSrc="../public/image/b2.jpg" alt="">
-	<img pSrc="../public/image/b3.jpg" alt="">
-	<img pSrc="../public/image/b4.jpg" alt="">
+	<img pSrc="./image/b1.jpg" alt="">
+	<img pSrc="./image/b2.jpg" alt="">
+	<img pSrc="./image/b3.jpg" alt="">
+	<img pSrc="./image/b4.jpg" alt="">
 
 
 	<!--
@@ -51,8 +51,8 @@
 	        sources: {
 	            imgs:{
 	                source:[
-	                    "../public/image/b2.jpg",
-	                    "../public/image/b1.jpg"
+	                    "./image/b2.jpg",
+	                    "./image/b1.jpg"
 	                ],
 	                callback: function(){
 	                    console.log("队列1完成");
@@ -60,14 +60,14 @@
 	            },
 	            audio:{
 	                source:[
-	                    "../public/audio/a.mp3",
-	                    "../public/audio/b.mp3"
+	                    "./audio/a.mp3",
+	                    "./audio/b.mp3"
 	                ]
 	            },
 	            imgs2:{
 	                source:[
-	                    "../public/image/b3.jpg",
-	                    "../public/image/b4.jpg",
+	                    "./image/b3.jpg",
+	                    "./image/b4.jpg",
 	                    "http://7xl041.com1.z0.glb.clouddn.com/OrthographicCamera.png",
 	                    "http://7xl041.com1.z0.glb.clouddn.com/audio.gif",
 	                ],
