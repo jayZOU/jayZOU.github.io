@@ -10576,7 +10576,7 @@
 
 
 	// module
-	exports.push([module.id, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n.schedule[_v-fbd96c46]{\n\twidth: 80%;\n\tmax-width: 1400px;\n\tmargin: 0 auto;\n\tposition: relative;\n}\n.time-ground[_v-fbd96c46]{\n\tdisplay: block;\n\tposition: absolute;\n\tleft: 0;\n\ttop: 0;\n\twidth: 100%;\n}\n.time-ground ul li[_v-fbd96c46]{\n\tmargin-top: 50px;\n\tfont-size: 1rem;\n\theight: 50px;\n}\n.time-ground ul li span[_v-fbd96c46]{\n\tposition: absolute;\n\tleft: -60px;\n\t-webkit-transform: translateY(-50%);\n\t        transform: translateY(-50%);\n}\n.time-ground ul li p[_v-fbd96c46]{\n\t/*content:\"\";*/\n\tposition:absolute;\n\tleft: 0;\n\t\n\theight: 1px;\n\tbackground-color: #EAEAEA;\n}\n/*.line{\n\tborder-bottom: 1px solid #EAEAEA;\n}*/\n.task-ground[_v-fbd96c46]{\n\twidth: 100%;\n}\n.task-list[_v-fbd96c46]{\n\tfloat: left;\n\twidth: 20%;\n\tbox-sizing:border-box;\n\tborder:1px solid #EAEAEA;\n}\n.task-list p[_v-fbd96c46]{\n\ttext-align: center;\n\tfont-size: 1rem;\n\tpadding: 1rem;\n}\n.task-list-item[_v-fbd96c46]{\n\tposition: absolute;\n\tbackground-color: #577F92;\n\twidth: 20%;\n\theight: 50px;\n\tcursor: pointer;\n\n}\n.task-list-item p[_v-fbd96c46]{\n\ttext-align: left;\n\tpadding: 0;\n\tmargin: 1rem 0 0 1rem;\n\tfont-size: 0.8rem;\n\tcolor: #EDF2F6;\n}\n.task-list-item h3[_v-fbd96c46]{\n\tcolor: #E0E7E9;\n\tmargin: 1rem 0 0 1rem;\n}\n", ""]);
+	exports.push([module.id, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n.schedule[_v-fbd96c46]{\n\twidth: 80%;\n\tmax-width: 1400px;\n\tmargin: 0 auto;\n\tposition: relative;\n}\n.time-ground[_v-fbd96c46]{\n\tdisplay: block;\n\tposition: absolute;\n\tleft: 0;\n\ttop: 0;\n\twidth: 100%;\n}\n.time-ground ul li[_v-fbd96c46]{\n\tmargin-top: 50px;\n\tfont-size: 1rem;\n\theight: 50px;\n}\n.time-ground ul li span[_v-fbd96c46]{\n\tposition: absolute;\n\tleft: -60px;\n\t-webkit-transform: translateY(-50%);\n\t        transform: translateY(-50%);\n}\n.time-ground ul li p[_v-fbd96c46]{\n\tposition:absolute;\n\tleft: 0;\n\t\n\theight: 1px;\n\tbackground-color: #EAEAEA;\n}\n\n.task-ground[_v-fbd96c46]{\n\twidth: 100%;\n}\n.task-list[_v-fbd96c46]{\n\tfloat: left;\n\twidth: 20%;\n\tbox-sizing:border-box;\n\tborder:1px solid #EAEAEA;\n}\n.task-list p[_v-fbd96c46]{\n\ttext-align: center;\n\tfont-size: 1rem;\n\tpadding: 1rem;\n}\n.task-list-item[_v-fbd96c46]{\n\tposition: absolute;\n\tbackground-color: #577F92;\n\twidth: 20%;\n\theight: 50px;\n\tcursor: pointer;\n\n}\n.task-list-item p[_v-fbd96c46]{\n\ttext-align: left;\n\tpadding: 0;\n\tmargin: 1rem 0 0 1rem;\n\tfont-size: 0.8rem;\n\tcolor: #EDF2F6;\n}\n.task-list-item h3[_v-fbd96c46]{\n\tcolor: #E0E7E9;\n\tmargin: 1rem 0 0 1rem;\n}\n", ""]);
 
 	// exports
 
@@ -10902,7 +10902,7 @@
 				default: []
 			},
 			color: {
-				type: Object,
+				type: Array,
 				default: function _default() {
 					return ["#2B2E4A", "#521262", "#903749", "#53354A", "#40514E", "#537780"];
 				}
@@ -10918,6 +10918,7 @@
 					dateStart: '09:30',
 					dateEnd: '10:30',
 					title: 'Metting',
+					week: 'Monday',
 					styleObj: {
 						backgroundColor: "#903749"
 					},
@@ -10932,10 +10933,24 @@
 			};
 		},
 		created: function created() {
+			var maxTime = this.timeGround[this.timeGround.length - 1];
+			var minTime = this.timeGround[0];
+
+			var maxMin = maxTime.split(':')[0] * 60 + maxTime.split(':')[1] * 1;
+			var minMin = minTime.split(':')[0] * 60 + minTime.split(':')[1] * 1;
+
 			for (var i = 0; i < this.taskDetail.length; i++) {
 				for (var j = 0; j < this.taskDetail[i].length; j++) {
+
 					var startMin = this.taskDetail[i][j].dateStart.split(':')[0] * 60 + this.taskDetail[i][j].dateStart.split(':')[1] * 1;
 					var endMin = this.taskDetail[i][j].dateEnd.split(':')[0] * 60 + this.taskDetail[i][j].dateEnd.split(':')[1] * 1;
+
+					if (startMin < minMin || endMin > maxMin) {
+						this.taskDetail[i].splice(j, 1);
+						j--;
+						continue;
+					};
+
 
 					var difMin = endMin - startMin;
 
@@ -10943,10 +10958,12 @@
 					this.taskDetail[i][j].styleObj = {
 						height: difMin * 100 / 60 + 'px',
 						top: (startMin - (this.timeGround[0].split(":")[0] * 60 + this.timeGround[0].split(":")[1] * 1)) * 100 / 60 + 50 + 'px',
-						backgroundColor: this.color[~~(Math.random() * 6)]
+						backgroundColor: this.color[~~(Math.random() * this.color.length)]
 					};
 				}
 			}
+
+			console.log(this.taskDetail);
 		},
 		compiled: function compiled() {
 			this.taskListSty.height = (this.timeGround.length - 1) * 100 + 'px';
@@ -10955,8 +10972,10 @@
 		},
 
 		methods: {
-			showDetail: function showDetail(obj) {
+			showDetail: function showDetail(obj, week) {
+				obj.week = week;
 				this.showModalDetail = obj;
+
 				this.showModal = true;
 				console.log(this.showModalDetail);
 			}
@@ -11072,13 +11091,13 @@
 /* 14 */
 /***/ function(module, exports) {
 
-	module.exports = "\n<div class=\"modal-mask\" v-show=\"show\" transition=\"modal\" v-on:click=\"close\" _v-f629f552=\"\">\n    <div class=\"modal-wrapper\" _v-f629f552=\"\">\n      <div class=\"modal-container\" :style=\"{'backgroundColor': showModalDetail.styleObj.backgroundColor}\" _v-f629f552=\"\">\n\n        <div class=\"modal-header\" _v-f629f552=\"\">\n          <a class=\"close\" @click=\"show = false\" _v-f629f552=\"\">X</a>\n        </div>\n        \n        <div class=\"modal-body\" _v-f629f552=\"\">\n        \t<h2 _v-f629f552=\"\">{{showModalDetail.title}}</h2>\n        \t<small _v-f629f552=\"\">{{showModalDetail.dateStart}} - {{showModalDetail.dateEnd}}</small>\n        \t<p _v-f629f552=\"\">{{showModalDetail.detail}}</p>\n        </div>\n\n        <!-- <div class=\"modal-footer\">\n          <slot name=\"footer\">\n            default footer\n            <button class=\"modal-default-button\"\n              @click=\"show = false\">\n              OK\n            </button>\n          </slot>\n        </div> -->\n      </div>\n    </div>\n</div>\n";
+	module.exports = "\n<div class=\"modal-mask\" v-show=\"show\" transition=\"modal\" v-on:click=\"close\" _v-f629f552=\"\">\n    <div class=\"modal-wrapper\" _v-f629f552=\"\">\n      <div class=\"modal-container\" :style=\"{'backgroundColor': showModalDetail.styleObj.backgroundColor}\" _v-f629f552=\"\">\n\n        <div class=\"modal-header\" _v-f629f552=\"\">\n          <a class=\"close\" @click=\"show = false\" _v-f629f552=\"\">X</a>\n        </div>\n        \n        <div class=\"modal-body\" _v-f629f552=\"\">\n        \t<h2 _v-f629f552=\"\">{{showModalDetail.title}}</h2>\n        \t<small _v-f629f552=\"\">{{showModalDetail.week}}  {{showModalDetail.dateStart}} - {{showModalDetail.dateEnd}}</small>\n        \t<p _v-f629f552=\"\">{{showModalDetail.detail}}</p>\n        </div>\n\n        <!-- <div class=\"modal-footer\">\n          <slot name=\"footer\">\n            default footer\n            <button class=\"modal-default-button\"\n              @click=\"show = false\">\n              OK\n            </button>\n          </slot>\n        </div> -->\n      </div>\n    </div>\n</div>\n";
 
 /***/ },
 /* 15 */
 /***/ function(module, exports) {
 
-	module.exports = "\n<div class=\"schedule\" _v-fbd96c46=\"\">\n\t<div class=\"time-ground\" _v-fbd96c46=\"\">\n\t\t<ul _v-fbd96c46=\"\">\n\t\t\t<li v-for=\"time in timeGround\" _v-fbd96c46=\"\">\n\t\t\t\t<span _v-fbd96c46=\"\">{{time}}</span>\n\t\t\t\t<p :style=\"timeListSty\" _v-fbd96c46=\"\"></p>\n\t\t\t</li>\n\t\t</ul>\n\t</div>\n\t<div class=\"task-ground\" _v-fbd96c46=\"\">\n\t\t<ul _v-fbd96c46=\"\">\n\t\t\t<li v-for=\"week in weekGround\" class=\"task-list\" _v-fbd96c46=\"\">\n\t\t\t\t<p _v-fbd96c46=\"\">{{week}}</p>\n\t\t\t\t\t<!-- {{$index}} -->\n\t\t\t\t<ul :style=\"taskListSty\" _v-fbd96c46=\"\">\n\t\t\t\t\t<li class=\"task-list-item\" v-for=\"detail in taskDetail[$index]\" :style=\"detail.styleObj\" @click=\"showDetail(detail)\" _v-fbd96c46=\"\">\n\t\t\t\t\t\t<p _v-fbd96c46=\"\">{{detail.dateStart}} - {{detail.dateEnd}}</p>\n\t\t\t\t\t\t<h3 _v-fbd96c46=\"\">{{detail.title}}</h3>\n\t\t\t\t\t</li>\n\t\t\t\t</ul>\n\t\t\t</li>\n\t\t</ul>\n\t</div>\n\n\t<modal :show.sync=\"showModal\" :show-modal-detail.sync=\"showModalDetail\" _v-fbd96c46=\"\">\n</modal></div>\n";
+	module.exports = "\n<div class=\"schedule\" _v-fbd96c46=\"\">\n\t<div class=\"time-ground\" _v-fbd96c46=\"\">\n\t\t<ul _v-fbd96c46=\"\">\n\t\t\t<li v-for=\"time in timeGround\" _v-fbd96c46=\"\">\n\t\t\t\t<span _v-fbd96c46=\"\">{{time}}</span>\n\t\t\t\t<p :style=\"timeListSty\" _v-fbd96c46=\"\"></p>\n\t\t\t</li>\n\t\t</ul>\n\t</div>\n\t<div class=\"task-ground\" _v-fbd96c46=\"\">\n\t\t<ul _v-fbd96c46=\"\">\n\t\t\t<li v-for=\"week in weekGround\" class=\"task-list\" _v-fbd96c46=\"\">\n\t\t\t\t<p _v-fbd96c46=\"\">{{week}}</p>\n\t\t\t\t\t<!-- {{$index}} -->\n\t\t\t\t<ul :style=\"taskListSty\" _v-fbd96c46=\"\">\n\t\t\t\t\t<li class=\"task-list-item\" v-for=\"detail in taskDetail[$index]\" :style=\"detail.styleObj\" @click=\"showDetail(detail, week)\" _v-fbd96c46=\"\">\n\t\t\t\t\t\t<p _v-fbd96c46=\"\">{{detail.dateStart}} - {{detail.dateEnd}}</p>\n\t\t\t\t\t\t<h3 _v-fbd96c46=\"\">{{detail.title}}</h3>\n\t\t\t\t\t</li>\n\t\t\t\t</ul>\n\t\t\t</li>\n\t\t</ul>\n\t</div>\n\n\t<modal :show.sync=\"showModal\" :show-modal-detail.sync=\"showModalDetail\" _v-fbd96c46=\"\">\n</modal></div>\n";
 
 /***/ }
 /******/ ]);
