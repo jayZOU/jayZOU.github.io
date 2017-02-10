@@ -3,7 +3,6 @@ var urlsToCache = [
   '/',
   './css/main.css',
   './js/main.js',
-  'https://res.wx.qq.com/mmbizwap/zh_CN/htmledition/js/vconsole/2.5.1/vconsole.min.js'
 ];
 
 // console.log(self);
@@ -19,21 +18,6 @@ self.addEventListener('install', function(event) {
       })
   );
 });
-
-// self.addEventListener('fetch', function(event) {
-//   var response;
-//   event.respondWith(caches.match(event.request).catch(function() {
-//     return fetch(event.request);
-//   }).then(function(r) {
-//     response = r;
-//     caches.open(CACHE_NAME).then(function(cache) {
-//       cache.put(event.request, response);
-//     });
-//     return response.clone();
-//   }).catch(function() {
-//     return caches.match('/sw-test/gallery/myLittleVader.jpg');
-//   }));
-// });
 
 //拦截请求
 self.addEventListener('fetch', function(event) {
