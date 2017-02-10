@@ -2,7 +2,8 @@ var CACHE_NAME = 'my-site-cache-v1';
 var urlsToCache = [
   '/',
   './css/main.css',
-  './js/main.js'
+  './js/main.js',
+  'https://res.wx.qq.com/mmbizwap/zh_CN/htmledition/js/vconsole/2.5.1/vconsole.min.js'
 ];
 
 // console.log(self);
