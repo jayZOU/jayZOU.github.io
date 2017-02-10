@@ -20,18 +20,33 @@ self.addEventListener('install', function(event) {
   );
 });
 
-//拦截请求
 // self.addEventListener('fetch', function(event) {
-//   event.respondWith(
-//     caches.match(event.request)
-//       .then(function(response) {
-//         console.log(event);
-//         // Cache hit - return response
-//         if (response) {
-//           return response;
-//         }
-//         return fetch(event.request);
-//       }
-//     )
-//   );
+//   var response;
+//   event.respondWith(caches.match(event.request).catch(function() {
+//     return fetch(event.request);
+//   }).then(function(r) {
+//     response = r;
+//     caches.open(CACHE_NAME).then(function(cache) {
+//       cache.put(event.request, response);
+//     });
+//     return response.clone();
+//   }).catch(function() {
+//     return caches.match('/sw-test/gallery/myLittleVader.jpg');
+//   }));
 // });
+
+//拦截请求
+self.addEventListener('fetch', function(event) {
+  event.respondWith(
+    caches.match(event.request)
+      .then(function(response) {
+        // console.log(event);
+        // Cache hit - return response
+        if (response) {
+          return response;
+        }
+        return fetch(event.request);
+      }
+    )
+  );
+});
