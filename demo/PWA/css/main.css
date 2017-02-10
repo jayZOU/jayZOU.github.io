@@ -1,4 +1,7 @@
 .p{
-	font-size: 66px;
+	font-size: 40px;
 	color: #123;
+}
+a{
+	display: block;
 }
