@@ -1,0 +1,140 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>前端组会分享-jayzou</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					前端组会分享</br>
+					jayzou
+				</section>
+				<section>
+						<ol>
+							<li>
+								前端测试
+								<ul>
+									<li>Why?</li>
+									<li>TDD(mocha&chai)</li>
+									<li>BDD(testCafe)</li>
+								</ul>
+							</li>
+							<li>
+								近场通信
+								<ul>
+									<li>啥玩意？</li>
+									<li>能干嘛？</li>
+								</ul>
+							</li>
+						</ol>
+					</section>
+					<section>
+						<p class="fragment" data-fragment-index="0">写个P测试用例啊！</p>
+						<p class="fragment" data-fragment-index="1">增加工作量，浪费时间</p>
+						<p class="fragment" data-fragment-index="2">真的吗？</p>
+						<img src="http://ww2.sinaimg.cn/large/005VSUChjw1eqnixkj397j30bk0afaaf.jpg" class="fragment" data-fragment-index="3" />
+					</section>
+
+					<section>
+						<p class="fragment" data-fragment-index="0">写个前补"0"的通用模块吧</p>
+						<div data-markdown class="fragment" data-fragment-index="1">
+							<pre>
+								<code>
+							export default function addZero(num) {
+								if (num < 10) return "0" + num;
+								return num
+							}
+								</code>
+							</pre>
+						</div>
+						<!-- <img class="fragment" src="./bu0.png" data-fragment-index="1"> -->
+						<p class="fragment" data-fragment-index="2">棒棒的！！</p>
+						<p class="fragment" data-fragment-index="3">但是...总感觉哪里不对劲...</p>
+						<p class="fragment" data-fragment-index="4">运行没啥问题呢，肯定是错觉</p>
+						<img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcT01o-AL1nI8CTFYa9Cdpo7ICKhweiTT6rX__ro53Voi28WoS3k1A" class="fragment" data-fragment-index="5" />
+					</section>
+					<section style="font-size: 20px;">
+						<p>历史遗留的产物...</p>
+						<p><img src="img1.png" class="fragment" data-fragment-index="1" /><img src="img2.png" class="fragment" data-fragment-index="2" /></p>	
+						<p class="fragment" data-fragment-index="3">这个模块到底能不能改？哪里有复用？</p>
+						<p class="fragment" data-fragment-index="4">改了之后哪里会受到影响？</p>
+						<p class="fragment" data-fragment-index="5">要死...</p>
+						<p><img src="http://www.layiwu.com/uploads/5_2516995445x3379423594_21.jpg" class="fragment" data-fragment-index="6" /></p>	
+					</section>
+					<section>
+						<p>亲~~要来一杯抹茶么？</p>
+					</section>
+					<section>
+						<p>mocha&chai</p>
+						<p class="fragment" style="font-size: 20px;width: 80%;margin: 0 auto;" data-fragment-index="1">mocha是javascript一款测试框架，能上厅堂(浏览器)也能下厨房(node)，chai是断言库，二者配合，口感更佳，合称"抹茶"</p>
+					</section>
+					<section style="font-size: 20px;">
+						<script>
+							console.log('https://travis-ci.org/');
+						</script>
+						<p class="fragment" data-fragment-index="1">部署持续集成工程(github + travis-ci)</p>
+						<p><img src="img3.png" class="fragment" data-fragment-index="2" /></p>	
+						<p class="fragment" data-fragment-index="3">妈妈再也不担心我写BUG了</p>	
+
+						<p><img src="http://www.vstou.com/img/201508/wnm8.jpg" class="fragment" data-fragment-index="4" /></p>	
+					</section>
+					<section>
+						<p class="fragment" data-fragment-index="1">打飞机项目测试好烦啊~~</p>
+						<p class="fragment" data-fragment-index="2">测个页面性能都要搞好几台手机来玩</p>
+						<p class="fragment" data-fragment-index="3">就不能来个精灵帮我测么</p>
+					</section>
+					<section>
+						<p class="fragment" data-fragment-index="1">还真有...</p>
+						<p class="fragment" data-fragment-index="2">testCafe(怎么都是咖啡...)</p>
+						<p style="width: 800px;height: 800px;margin: 0 auto"><img src="https://devexpress.github.io/testcafe/images/install-and-run-test.gif" class="fragment" data-fragment-index="3" /></p>	
+					</section>
+					<section>
+						<p class="fragment" data-fragment-index="0">关于近场通信啊~~</p>
+					</section>
+					<section>
+						<embed src="https://imgcache.qq.com/tencentvideo_v1/playerv3/TPout.swf?max_age=86400&v=20161117&vid=f01555e4278&auto=0" allowFullScreen="true" quality="high" width="480" height="400" align="middle" allowScriptAccess="always" type="application/x-shockwave-flash"></embed>
+					</section>
+					<section>
+						完结撒花
+					</section>
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				history: true,
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>
