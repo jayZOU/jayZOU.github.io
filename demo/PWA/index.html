@@ -1,27 +1,37 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>PWA</title>
+	<title>Service Worker</title>
 	<link rel="stylesheet" type="text/css" href="./css/main.css">
 </head>
 <body>
-<p class="p">Hello PWA -- from index.html</p>
+<p class="p">Hello Service Worker -- from index.html</p>
 <a href="about.html">about.html</a>
 <a href="page.html">page.html</a>
+<a href="no-cache.html">no-cache.html</a>
 <!-- <script src="https://res.wx.qq.com/mmbizwap/zh_CN/htmledition/js/vconsole/2.5.1/vconsole.min.js"></script> -->
 <script src="./js/main.js"></script>
 <script>
 	if ('serviceWorker' in navigator) {
-	  window.addEventListener('load', function() {
-	    navigator.serviceWorker.register('./sw.js').then(function(registration) {
-	      // Registration was successful
-	      alert('ServiceWorker registration successful with scope: ', registration.scope);
-	      registration.update();
-	    }).catch(function(err) {
-	      // registration failed :(
-	      alert('ServiceWorker registration failed: ', err);
-	    });
-	  });
+	    navigator.serviceWorker.register('./sw.js')
+	    	.then(function(registration) {
+		      // Registration was successful
+		      alert('ServiceWorker registration successful with scope: ', registration.scope);
+
+		      	registration.pushManager.subscribe().then(
+		      		function(pushSubscription) {
+				        console.log(pushSubscription.endpoint);
+				      }, function(error) {
+				        console.log(error);
+				      }
+				    );
+
+		    }).catch(function(err) {
+		      // registration failed :(
+		      console.log(err);
+		      alert('ServiceWorker registration failed: ', err);
+		    });
+
 	}
 </script>
 </body>
