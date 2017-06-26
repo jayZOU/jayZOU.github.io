@@ -1,674 +1,1989 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="">
 <head>
-  <meta charset="utf-8">
-  <title>Jayzou Blog</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description">
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
 <meta property="og:type" content="website">
-<meta property="og:title" content="Jayzou Blog">
+<meta property="og:title" content="jayzou&#39;blog">
 <meta property="og:url" content="http://yoursite.com/index.html">
-<meta property="og:site_name" content="Jayzou Blog">
-<meta property="og:description">
+<meta property="og:site_name" content="jayzou&#39;blog">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Jayzou Blog">
-<meta name="twitter:description">
+<meta name="twitter:title" content="jayzou&#39;blog">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'jayzou'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/"/>
+
+
+
+
+
+  <title>jayzou'blog</title>
   
-    <link rel="alternative" href="/atom.xml" title="Jayzou Blog" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.png">
-  
-  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  <link rel="stylesheet" href="./css/style.css" type="text/css">
-  
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 </head>
-<body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">Jayzou Blog</a>
-      </h1>
-      
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left 
+   page-home 
+ ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">jayzou'blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
     </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
-      </div>
-    </div>
-  </div>
-</header>
-      <div class="outer">
-        <section id="main">
-  
-    <article id="post-【布局篇】react-native" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/12/25/【布局篇】react-native/" class="article-date">
-  <time datetime="2015-12-25T09:39:35.000Z" itemprop="datePublished">2015-12-25</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/react-native/">react-native</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/12/25/【布局篇】react-native/">【布局篇】react-native</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="u7B80_u4ECB"><a href="#u7B80_u4ECB" class="headerlink" title="简介"></a>简介</h2><p>这里以三种经典布局来讲解react-native布局概念，主要以flexbox为主，react native中有两个基本元素&lt; View &gt;与&lt; Text &gt;，分别类似于web端div和span，用于布局和修饰。需要注意的是，react native不是所有的CSS属性都支持，这里有react native所支持的<a href="https://facebook.github.io/react-native/docs/flexbox.html#content" target="_blank" rel="external">CSS属性</a></p>
-<hr>
-<h2 id="u51C6_u5907_u5DE5_u4F5C"><a href="#u51C6_u5907_u5DE5_u4F5C" class="headerlink" title="准备工作"></a>准备工作</h2><p>在JSX中写样式还是有点不习惯，这里使用<a href="https://github.com/sabeurthabti/react-native-css" target="_blank" rel="external">react-native-css</a>模块来编写样式，安装、使用过程如下</p>
-<pre><code>npm install react-native-css -g 
-react-native-css -i style.css -o style.js --watch
-</code></pre><hr>
-<h2 id="u5E03_u5C40_u8BB2_u89E3"><a href="#u5E03_u5C40_u8BB2_u89E3" class="headerlink" title="布局讲解"></a>布局讲解</h2><h3 id="u5DE6_u53F3_u5E03_u5C40"><a href="#u5DE6_u53F3_u5E03_u5C40" class="headerlink" title="左右布局"></a>左右布局</h3><p>由于是横向布局，我们需要flex-direction: row（默认纵向布局），左右以1:1方式排版，就都需要flex:1，布局容器也需要加上flex:1，表示为伸缩容器。由于react native没有br标签，需要换行只能将换行符插入。</p>
-<p><strong>样式表：</strong></p>
-<pre><code>wrap {
-  flex:1;
-  flex-direction: row;
-  background-color: yellow;
-}
+        <p class="site-subtitle"></p>
+      
+  </div>
 
-left{
-  flex:1;
-  background-color: #64BA9D;
-}
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
 
-right{
-  flex:1;
-  background-color: #008E59;
-}
+<nav class="site-nav">
+  
 
-text{
-  padding:10;
-  font-size:16;
-  color:#EEEEEE;
-  line-height:20;
-  text-align: center;
-}
-</code></pre><p><strong>页面结构：</strong></p>
-<pre><code>&lt;View style={styles.wrap}&gt;
-    &lt;View style={styles.left}&gt;
-      &lt;Text style={styles.text}&gt;
-        这是左侧栏{&apos;\n&apos;}
-        这是左侧栏{&apos;\n&apos;}
-        这是左侧栏{&apos;\n&apos;}
-        这是左侧栏{&apos;\n&apos;}
-      &lt;/Text&gt;
-    &lt;/View&gt;
-    &lt;View style={styles.right}&gt;
-      &lt;Text style={styles.text}&gt;
-        这是右侧栏{&apos;\n&apos;}
-        这是右侧栏{&apos;\n&apos;}
-        这是右侧栏{&apos;\n&apos;}
-        这是右侧栏{&apos;\n&apos;}
-      &lt;/Text&gt;
-    &lt;/View&gt;
-&lt;/View&gt;
-</code></pre><p><img src="http://7xl041.com1.z0.glb.clouddn.com/react-native-e.png" alt="此处输入图片的描述"></p>
-<hr>
-<h3 id="u5DE6_u4E2D_u53F3_u5E03_u5C40"><a href="#u5DE6_u4E2D_u53F3_u5E03_u5C40" class="headerlink" title="左中右布局"></a>左中右布局</h3><p>左右定宽，中间占满</p>
-<p><strong>样式表：</strong></p>
-<pre><code>wrap {
-  flex:1;
-  flex-direction: row;
-  background-color: yellow;
-}
-
-left{
-  width: 80;
-  background-color: #64BA9D;
-}
-
-centent{
-  flex:1;
-  background-color: #a9ea00;
-}
-
-right{
-  width: 80;
-  background-color: #008E59;
-}
-
-text{
-  padding:10;
-  font-size:16;
-  color:#EEEEEE;
-  line-height:20;
-  text-align: center;
-}
-</code></pre><p><strong>页面结构：</strong></p>
-<pre><code>&lt;View style={styles.wrap}&gt;
-    &lt;View style={styles.left}&gt;
-      &lt;Text style={styles.text}&gt;
-        这是左侧栏{&apos;\n&apos;}
-        这是左侧栏{&apos;\n&apos;}
-        这是左侧栏{&apos;\n&apos;}
-        这是左侧栏{&apos;\n&apos;}
-      &lt;/Text&gt;
-    &lt;/View&gt;
-    &lt;View style={styles.centent}&gt;
-      &lt;Text style={styles.text}&gt;
-        这是内容区{&apos;\n&apos;}
-        这是内容区{&apos;\n&apos;}
-        这是内容区{&apos;\n&apos;}
-        这是内容区{&apos;\n&apos;}
-      &lt;/Text&gt;
-    &lt;/View&gt;
-    &lt;View style={styles.right}&gt;
-      &lt;Text style={styles.text}&gt;
-        这是右侧栏{&apos;\n&apos;}
-        这是右侧栏{&apos;\n&apos;}
-        这是右侧栏{&apos;\n&apos;}
-        这是右侧栏{&apos;\n&apos;}
-      &lt;/Text&gt;
-    &lt;/View&gt;
-&lt;/View&gt;
-</code></pre><p><img src="http://7xl041.com1.z0.glb.clouddn.com/react-native-f.png" alt="此处输入图片的描述"></p>
-<hr>
-<h3 id="u4E0A_u4E2D_u4E0B_u5E03_u5C40"><a href="#u4E0A_u4E2D_u4E0B_u5E03_u5C40" class="headerlink" title="上中下布局"></a>上中下布局</h3><p>类似新闻和门户APP的布局，上下贴边，中间为内容区（带滚动条，后续组件篇再讲解）</p>
-<p><strong>样式表：</strong></p>
-<pre><code>wrap {
-  flex:1;
-  flex-direction:column;
-}
-
-top{
-  height: 40;
-  background-color: #008E59;
-}
-centent{
-  flex:1;
-  background-color: #64BA9D;
-}
-
-bottom{
-  height: 40;
-  background-color: #a9ea00;
-}
-
-text{
-  padding:10;
-  font-size:16;
-  color:#fff;
-  line-height:20;
-  text-align: center;
-}
-</code></pre><p><strong>页面结构：</strong></p>
-<pre><code>&lt;View style={styles.wrap}&gt;
-    &lt;View style={styles.top}&gt;
-      &lt;Text style={styles.text}&gt;
-        头部信息
-      &lt;/Text&gt;
-    &lt;/View&gt;
-    &lt;View style={styles.centent}&gt;
-      &lt;Text style={styles.text}&gt;
-        这是内容区{&apos;\n&apos;}
-      &lt;/Text&gt;
-    &lt;/View&gt;
-    &lt;View style={styles.bottom}&gt;
-      &lt;Text style={styles.text}&gt;
-        尾部信息
-      &lt;/Text&gt;
-    &lt;/View&gt;
-&lt;/View&gt;
-</code></pre><hr>
-<h3 id="u7EFC_u5408_u5E03_u5C40"><a href="#u7EFC_u5408_u5E03_u5C40" class="headerlink" title="综合布局"></a>综合布局</h3><p>简单模拟网易新闻APP布局<br><img src="http://7xl041.com1.z0.glb.clouddn.com/react-native-g.jpg" alt="此处输入图片的描述"></p>
-<p>我们可以简单看看APP布局方式，总体来说就是<strong>上中下</strong>的布局方式，我们可以初步先编写外部结构<br><strong>页面结构：</strong></p>
-<pre><code>&lt;View style={styles.wrap}&gt;
-    &lt;View style={styles.top}&gt;
-      &lt;Text&gt;头部&lt;/Text&gt;
-    &lt;/View&gt;
-    &lt;View style={styles.cententWrap}&gt;
-      &lt;Text&gt;新闻主题&lt;/Text&gt;
-    &lt;/View&gt;
-    &lt;View style={styles.bottom}&gt;
-      &lt;Text&gt;
-        尾部导航
-      &lt;/Text&gt;
-    &lt;/View&gt;
-&lt;/View&gt;
-</code></pre><p><strong>样式表：</strong></p>
-<pre><code>wrap {
-  flex:1;
-  flex-direction:column;
-}
-top{
-  height: 40;
-  background-color: #EC403C;
-}
-cententWrap{
-  flex:1;
-  flex-direction:column;
-}
-bottom{
-  height: 40;
-}
-</code></pre><p>大致结构算是搭建完毕，开始完善头部展示（偷懒、不想切图，就用个title代替就好啦~~~）<br><strong>页面结构：</strong></p>
-<pre><code>&lt;View style={styles.wrap}&gt;
-    &lt;View style={styles.top}&gt;
-      &lt;Text style={styles.topTitle}&gt;网易&lt;/Text&gt;
-    &lt;/View&gt;
-    &lt;View style={styles.cententWrap}&gt;
-      &lt;Text&gt;新闻主题&lt;/Text&gt;
-    &lt;/View&gt;
-    &lt;View style={styles.bottom}&gt;
-      &lt;Text&gt;
-        尾部导航
-      &lt;/Text&gt;
-    &lt;/View&gt;
-&lt;/View&gt;
-</code></pre><p><strong>样式表：</strong></p>
-<pre><code>topTitle{
-  margin-top: 15;
-  margin-left: 20;
-  text-align: left;
-  font-size: 14;
-  color:#FFF;
-}
-</code></pre><p>头部内容完成之后，就完善内容区域的导航条，但是react-native并没有提供ul、li标签（也许以后有），这个是要View来代替ul，Text代替li，代码和数据如下：<br><strong>页面结构：</strong></p>
-<pre><code>var cententNav = [&apos;头条&apos;, &apos;热点&apos;, &apos;娱乐&apos;, &apos;体育&apos;, &apos;财经&apos;];
-return (
-  &lt;View style={styles.wrap}&gt;
-    &lt;View style={styles.top}&gt;
-      &lt;Text style={styles.topTitle}&gt;网易&lt;/Text&gt;
-    &lt;/View&gt;
-    &lt;View style={styles.cententWrap}&gt;
-      &lt;View style={styles.cententNav}&gt;
-        {
-          cententNav.map(function(el, index){
-            return &lt;Text style={styles.cententNavText}&gt;
-              &lt;Text style={index == 0 ? styles.textR : &quot;&quot;}&gt;{cententNav[index]}&lt;/Text&gt;
-            &lt;/Text&gt;
-
-          })
-        }
-      &lt;/View&gt;
-    &lt;/View&gt;
-    &lt;View style={styles.bottom}&gt;
-      &lt;Text&gt;
-        尾部导航
-      &lt;/Text&gt;
-    &lt;/View&gt;
-  &lt;/View&gt;
-);
-</code></pre><p><strong>样式表：</strong></p>
-<pre><code>cententWrap{
-  flex:1;
-  flex-direction:column;
-}
-cententNav{
-  flex-direction: row;
-  height: 20;
-  margin-left: 5;
-  margin-top: 5;
-  margin-right: 5;
-}
-cententNavText{
-  width: 60;
-  font-size: 14;
-  color: #9C9C9C;
-  margin-left: 10;
-}
-</code></pre><p>新闻主题方面可以划分为左右两栏，左栏固定宽，右栏占满，由于react-native不支持overflow:scroll属性，这里会用到一个ScrollView的滚动条组件来展示新闻概述，篇幅可能较长，底部就不再编写了（就是懒~~），大家各自完善吧，以下是全部的布局代码和样式。</p>
-<p><strong>页面结构：</strong></p>
-<pre><code>render: function() {
-// var repeatArr = Array(100).join(&quot;1&quot;).split(&quot;&quot;)
-var cententNav = [&apos;头条&apos;, &apos;热点&apos;, &apos;娱乐&apos;, &apos;体育&apos;, &apos;财经&apos;],
-    NEW_DATA = [
-      {
-        img: &quot;http://7xl041.com1.z0.glb.clouddn.com/new1.png&quot;,
-        title: &quot;李克强宴请上合各参会领导人&quot;,
-        content: &quot;称会议阐释了上合组织\“大家庭\”的深厚友谊和良好氛围&quot;,
-        typeImg: &quot;http://7xl041.com1.z0.glb.clouddn.com/new-type1.png&quot;
-      },
-      //.....类似数据
-    ];
-return (
-  &lt;View style={styles.wrap}&gt;
-    &lt;View style={styles.top}&gt;
-      &lt;Text style={styles.topTitle}&gt;网易&lt;/Text&gt;
-    &lt;/View&gt;
-    &lt;View style={styles.cententWrap}&gt;
-      &lt;View style={styles.cententNav}&gt;
-        {
-          cententNav.map(function(el, index){
-            return &lt;Text style={styles.cententNavText}&gt;
-              &lt;Text style={index == 0 ? styles.textR : &quot;&quot;}&gt;{cententNav[index]}&lt;/Text&gt;
-            &lt;/Text&gt;
-
-          })
-        }
-      &lt;/View&gt;
-      &lt;ScrollView style={styles.centent}&gt;
-        {
-          NEW_DATA.map(function(el, index){
-            return (
-              &lt;View&gt;
-
-              &lt;View style={styles.cententLi}&gt;
-                  &lt;Image source={ {uri: NEW_DATA[index].img} } style={styles.cententImg} /&gt;
-                  &lt;View style={styles.rightCentent}&gt;
-                    &lt;Text style={styles.cententTitle}&gt;{NEW_DATA[index].title}&lt;/Text&gt;
-                    &lt;Text style={styles.cententCentent}&gt;{NEW_DATA[index].content}&lt;/Text&gt;
-                  &lt;/View&gt;
-                  &lt;Image source={ {uri: NEW_DATA[index].typeImg} } style={styles.cententType} /&gt;
-                &lt;/View&gt;
-                &lt;View style={styles.line}&gt;&lt;/View&gt;
-              &lt;/View&gt;
-            )
-          })
-        }
-      &lt;/ScrollView&gt;
-        &lt;/View&gt;
-        &lt;View style={styles.bottom}&gt;
-          &lt;Text style={styles.text}&gt;
-            尾部信息
-          &lt;/Text&gt;
-        &lt;/View&gt;
-      &lt;/View&gt;
-    );
-  }
-</code></pre><p><strong>样式表：</strong></p>
-<pre><code>wrap {
-  flex:1;
-  flex-direction:column;
-}
-
-top{
-  height: 40;
-  background-color: #EC403C;
-}
-topTitle{
-  margin-top: 15;
-  margin-left: 20;
-  text-align: left;
-  font-size: 14;
-  color:#FFF;
-}
-
-cententWrap{
-  flex:1;
-  flex-direction:column;
-}
-cententNav{
-  flex-direction: row;
-  height: 20;
-  margin-left: 5;
-  margin-top: 5;
-  margin-right: 5;
-}
-cententNavText{
-  width: 60;
-  font-size: 14;
-  color: #9C9C9C;
-  margin-left: 10;
-}
-centent{
-  flex:1;
-  flex-direction:column;
-  borderBottomWidth:1;
-}
-cententLi{
-  flex-direction: row;
-  margin-left: 10;
-  margin-right: 10;
-}
-cententImg{
-  width: 80;
-  height: 80;
-}
-cententTitle{
-  font-size: 16;
-  color: #232323;
-  margin-bottom: 3;
-}
-cententCentent{
-  font-size: 12;
-}
-rightCentent{
-  flex: 1;
-  padding-left: 5;
-  padding-top: 5;
-  padding-right: 5;
-  padding-bottom: 5;
-}
-cententType{
-  width: 40;
-  height: 22;
-  position: absolute;
-  bottom: 0;
-  right: 0;
-}
-
-bottom{
-  height: 40;
-}
-
-text{
-  padding:10;
-  font-size:16;
-  color:#000;
-  line-height:20;
-  text-align: center;
-}
-
-textR{
-  font-weight: bold;
-  color:#EC403C;
-}
-line{
-  height: 1;
-  background-color: #E4E4E4;
-  margin-left: 10;
-  margin-right: 10;
-  margin-top: 7;
-  margin-bottom: 7;
-}
-</code></pre><hr>
-<h2 id="u603B_u7ED3"><a href="#u603B_u7ED3" class="headerlink" title="总结"></a>总结</h2><p>以上就是一些布局的描述，总得来说现在react-native能支持的CSS属性还不多，比如上面说的overflow，也许以后会更加完善。<br>下一篇打算写写android自带的一些组件，给大家分享用法和坑，欢迎大家点评，如果有说的不对的地方，欢迎指出</p>
-<hr>
-<h2 id="u53C2_u8003_u6587_u6863"><a href="#u53C2_u8003_u6587_u6863" class="headerlink" title="参考文档"></a>参考文档</h2><p><a href="http://www.html-js.com/article/Native-react-native-react-layout%203322" target="_blank" rel="external">http://www.html-js.com/article/Native-react-native-react-layout%203322</a></p>
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Startseite
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archiv
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
 
       
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/12/25/【布局篇】react-native/" data-id="ciilhldci0000b0zhs3py04wt" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-【入门篇】react-native" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/12/25/【入门篇】react-native/" class="article-date">
-  <time datetime="2015-12-25T02:52:47.000Z" itemprop="datePublished">2015-12-25</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/react-native/">react-native</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/12/25/【入门篇】react-native/">【入门篇】react-native</a>
-    </h1>
+    </ul>
   
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="u524D_u8A00"><a href="#u524D_u8A00" class="headerlink" title="前言"></a>前言</h2><p>这里以编写react-native android应用程序作为例子来讲解（为毛不用IOS？因为没有mac，也不想装黑苹果）</p>
-<hr>
-<h2 id="u642D_u5EFA_u57FA_u7840_u73AF_u5883"><a href="#u642D_u5EFA_u57FA_u7840_u73AF_u5883" class="headerlink" title="搭建基础环境"></a>搭建基础环境</h2><p><a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html" target="_blank" rel="external">JDK</a>（必须，不解释）<br><a href="http://developer.android.com/intl/zh-cn/sdk/installing/index.html" target="_blank" rel="external">SDK</a>（建议使用<a href="http://developer.android.com/intl/zh-cn/sdk/index.html" target="_blank" rel="external">Android Studio</a>，集成SDK以及模拟器）<br><a href="https://www.genymotion.com/" target="_blank" rel="external">genymotion</a>（如果是使用真机或者Android Studio自带的模拟器，可以选择不装）<br><a href="https://github.com/creationix/nvm" target="_blank" rel="external">NVM</a>（node版本控制器，需要node4.0以上版本）</p>
-<p>以上配置不是必须，可自行选择适合自己的环境，部分安装过程可能会涉及到翻墙，需要配置代理</p>
-<hr>
-<h2 id="u8E29_u5751_u8BB0_u5F55"><a href="#u8E29_u5751_u8BB0_u5F55" class="headerlink" title="踩坑记录"></a>踩坑记录</h2><h3 id="genymotion"><a href="#genymotion" class="headerlink" title="genymotion"></a>genymotion</h3><p>这里选择genymotion模拟器来讲解，也会提一下Android Studio自带的模拟器的一些注意点，使用真机的朋友可跳过这段。<br>genymotion的安装有2种模式，一种是带有Oracle VM VirtualBox虚拟机，另外一种是纯净版，genymotion的运行依赖VirtualBox虚拟机。</p>
-<p>选择下载android6.0-API 23模拟器<br><img src="http://7xl041.com1.z0.glb.clouddn.com/react-native-a.png" alt="此处输入图片的描述"></p>
-<blockquote>
-<p><em>如果无法显示API列表，请配置代理Settings-&gt;NetWork-&gt;Use HTTP Proxy</em></p>
-</blockquote>
-<p>启动模拟器，可能会有部分人卡在android启动界面上面，无法进入<br><img src="http://7xl041.com1.z0.glb.clouddn.com/react-native-b.png" alt="此处输入图片的描述"><br>genymotion的运行基于X86的架构，比起arm，X86的性能更流畅。我们需要使用X86架构的话，还需要安装HAXM。</p>
-<p>1、打开SDK Manager-&gt;Extras-&gt;Intel x86 Emulator Accelerator，安装即可，如果没有任何东西显示，还是代理问题，Tools-&gt;Options-&gt;Proxy Settings<br>2、进入C:\Users\用户\AppData\Local\Android\sdk\extras\intel\Hardware_Accelerated_Execution_Manager<br>安装intelhaxm-android.exe，安装出错，请参考<a href="http://www.cnblogs.com/csulennon/p/4178404.html" target="_blank" rel="external">这里</a></p>
-<p>至此我们就能进入模拟器界面</p>
-<hr>
-<h3 id="Android_Studio"><a href="#Android_Studio" class="headerlink" title="Android Studio"></a>Android Studio</h3><p>如果想使用android studio自带模拟器，可以打开AVD Manager-&gt;Create Virtual Device-&gt;选择自己需要的android版本<br>值得注意的是，模拟器默认选择X86架构，如果你不喜欢，你需要自己手动改成arm架构<br><img src="http://7xl041.com1.z0.glb.clouddn.com/react-native-c.png" alt="此处输入图片的描述"></p>
-<hr>
-<h3 id="NVM"><a href="#NVM" class="headerlink" title="NVM"></a>NVM</h3><p>这里选择用NVM来控制node版本，如果你已经装过node4.0以上的版本，就跳过这里。<br>安装方式和使用文档，github上面讲的很清楚，这里说下代理的配置，其实也就是npm的代理，配置全局代理</p>
-<blockquote>
-<p>npm config set proxy=you proxy<br>npm config set https-proxy=you https proxy</p>
-</blockquote>
-<hr>
-<h2 id="React-native_u521D_u59CB_u5316"><a href="#React-native_u521D_u59CB_u5316" class="headerlink" title="React-native初始化"></a>React-native初始化</h2><p>心理默默祈祷以下命令千万不要错误。。。</p>
-<pre><code>npm install -g react-native-cli
-react-native init AwesomeProject
-cd AwesomeProject
-react-native start
-react-native run-android
-</code></pre><p>果然。。。好吧，这里分享下自己遇到的一些问题</p>
-<p><strong>npm install -g react-native-cli</strong>：出错的最大可能就是node版本低于4.0或者代理没配置成功<br><strong>react-native run-android</strong>：这个命令会下载gradle依赖，执行失败的原因大部分也是因为代理的问题<br>进入C:\Users\用户\AppData.gradle，打开gradle.properties（不存在就新建一个），修改</p>
-<pre><code>systemProp.https.proxyHost=You https proxy
-systemProp.https.proxyPort=You https proxyPort
-systemProp.http.proxyHost=You proxy
-systemProp.http.proxyPort=You proxyPort
-</code></pre><p>总算是把android应用程序跑起来了，真累人啊<br><img src="http://7xl041.com1.z0.glb.clouddn.com/react-native-d.png" alt="此处输入图片的描述"></p>
-<hr>
-<h2 id="u603B_u7ED3"><a href="#u603B_u7ED3" class="headerlink" title="总结"></a>总结</h2><p>先发一篇react-native起步的文章，之后会进行一些实际的案例开发，文章内容如果有哪些不对的地方，欢迎指出。</p>
-<hr>
-<h2 id="u53C2_u8003_u6587_u6863"><a href="#u53C2_u8003_u6587_u6863" class="headerlink" title="参考文档"></a>参考文档</h2><p><a href="http://wiki.jikexueyuan.com/project/react-native/GettingStarted.html" target="_blank" rel="external">http://wiki.jikexueyuan.com/project/react-native/GettingStarted.html</a><br><a href="https://facebook.github.io/react-native/docs/getting-started.html" target="_blank" rel="external">https://facebook.github.io/react-native/docs/getting-started.html</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/12/25/【入门篇】react-native/" data-id="ciil327rx0000bkzhv322aird" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-  
-</section>
-        
-          <aside id="sidebar">
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">归类文档</h3>
-    <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/react-native/">react-native</a><span class="category-list-count">2</span></li></ul>
-    </div>
-  </div>
-
-  
-    
-  
-    
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">发布时间</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a><span class="archive-list-count">2</span></li></ul>
-    </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">最新文章</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2015/12/25/【布局篇】react-native/">【布局篇】react-native</a>
-          </li>
-        
-          <li>
-            <a href="/2015/12/25/【入门篇】react-native/">【入门篇】react-native</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2016 jayzou<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
-</footer>
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
   
 </nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+  <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/07/img2html/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="jayzou">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="jayzou'blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/04/07/img2html/" itemprop="url">一个很无聊的轮子—img2html</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-07T00:00:00+08:00">
+                2017-04-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/自造轮子/" itemprop="url" rel="index">
+                    <span itemprop="name">自造轮子</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
     
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>将图片转换为html节点(一个特别无聊的轮子……)</p>
+<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><p><a href="http://jayzou.github.io/demo/img2html/" target="_blank" rel="external">HTML页面</a></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">原图</th>
+<th style="text-align:center">转换后 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"> <img src="http://jayzou.github.io/demo/img2html/test.jpg" alt="enter image description here"></td>
+<td style="text-align:center"><img src="http://jayzou.github.io/demo/img2html/cover.jpg" alt="enter image description here"> </td>
+</tr>
+</tbody>
+</table>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><blockquote>
+<p>npm install img2html –save</p>
+</blockquote>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/04/07/img2html/#more" rel="contents">
+              Weiterlesen &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
 
 
-  <link rel="stylesheet" href="./fancybox/jquery.fancybox.css" type="text/css">
-  <script src="./fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/10/flex-simple/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="jayzou">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="jayzou'blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/03/10/flex-simple/" itemprop="url">flex基础布局详解</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-10T00:00:00+08:00">
+                2017-03-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/分享/" itemprop="url" rel="index">
+                    <span itemprop="name">分享</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h1 id="flex-tutorials"><a href="#flex-tutorials" class="headerlink" title="flex-tutorials"></a>flex-tutorials</h1><p>系统性的介绍关于flex布局，也作为自学的一篇文章</p>
+<h2 id="flex基础理念"><a href="#flex基础理念" class="headerlink" title="flex基础理念"></a>flex基础理念</h2><blockquote>
+<p>使用弹性盒子的意义是在任何尺寸的屏幕上改变其和其子元素的尺寸填充屏幕可用空间。一个弹性框容器将延展它的子元素以填充可用空间，并且缩小它的子元素来避免溢出。</p>
+</blockquote>
+<h2 id="flex属性"><a href="#flex属性" class="headerlink" title="flex属性"></a>flex属性</h2><p>一个flex布局的页面所具有的元素可分为2类。<br>1、<strong>弹性容器</strong><br>2、<strong>弹性元素</strong>（包含在弹性容器内的元素）</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/03/10/flex-simple/#more" rel="contents">
+              Weiterlesen &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
 
 
-<script src="./js/script.js" type="text/javascript"></script>
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/03/html2wxml/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="jayzou">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="jayzou'blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/03/03/html2wxml/" itemprop="url">一次微信小程序的快速开发体验</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-03T00:00:00+08:00">
+                2017-03-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/分享/" itemprop="url" rel="index">
+                    <span itemprop="name">分享</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h2><p>事情是这样的</p>
+<p>一天早上组里还早激烈的讨论某个项目的可用性和发展前景，突然老大说了句，能不能做个小程序的版本呢？然后大家纷纷讨论起来，有反对有支持，我就说了一句，刚出来的时候搞过一会。。。然后就把我推出来了（日了狗了~~）</p>
+<p>这个项目大概一个星期之后就要推出去了，换句话说，我要一个星期内搞个小程序的版本出来，宝宝有点慌了~~</p>
+<p>不过既然接手了还是要好好做的，首先的，完全自己搞肯定是来不及，项目的模块绝对要复用起来，思索下大概有3点需要搞</p>
+<ul>
+<li><strong>HTML</strong></li>
+<li><strong>CSS</strong></li>
+<li><strong>javascript module</strong></li>
+</ul>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/03/03/html2wxml/#more" rel="contents">
+              Weiterlesen &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/11/22/vue-schedule/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="jayzou">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="jayzou'blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2016/11/22/vue-schedule/" itemprop="url">vue-schedule</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-11-22T00:00:00+08:00">
+                2016-11-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/自造轮子/" itemprop="url" rel="index">
+                    <span itemprop="name">自造轮子</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <blockquote>
+<p>Vue.js file schedule component</p>
+</blockquote>
+<h2 id="install"><a href="#install" class="headerlink" title="install"></a>install</h2><pre><code>npm install vue-schedule --save
+</code></pre><h2 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h2><p><a href="http://jayzou.github.io/demo/vue-schedule/index.html" target="_blank" rel="external">http://jayzou.github.io/demo/vue-schedule/index.html</a><br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">Schedule</span> </span></div><div class="line">		<span class="attr">:time-ground</span>=<span class="string">"['09:00', '18:00']"</span> </div><div class="line">		<span class="attr">:week-ground</span>=<span class="string">"['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday']"</span> </div><div class="line">		<span class="attr">:task-detail</span>=<span class="string">"[</span></div><div class="line">			[</div><div class="line">				&#123;</div><div class="line">					dateStart: '09:30',</div><div class="line">					dateEnd: '10:30',</div><div class="line">					title: 'Metting',</div><div class="line">					detail: 'Metting (German: Mettingen) is a commune in the Moselle department in Grand Est in north-eastern France.'</div><div class="line">				&#125;,</div><div class="line">				&#123;</div><div class="line">					dateStart: '11:30',</div><div class="line">					dateEnd: '13:50',</div><div class="line">					title: 'Metting',</div><div class="line">					detail: 'Metting (German: Mettingen) is a commune in the Moselle department in Grand Est in north-eastern France.'</div><div class="line">				&#125;</div><div class="line">				</div><div class="line">			]</div><div class="line">		]"&gt;</div><div class="line">			</div><div class="line">	<span class="tag">&lt;/<span class="name">Schedule</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure></p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2016/11/22/vue-schedule/#more" rel="contents">
+              Weiterlesen &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/11/11/setTimeout/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="jayzou">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="jayzou'blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2016/11/11/setTimeout/" itemprop="url">关于setTimeout的妙用</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-11-11T00:00:00+08:00">
+                2016-11-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/分享/" itemprop="url" rel="index">
+                    <span itemprop="name">分享</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><blockquote>
+<p>在指定的延迟时间之后调用一个函数或执行一个代码片段</p>
+</blockquote>
+<p> 这个是setTimeout最主要的功能，但也是很坑的地方，首先javascript其实是运行在单线程的环境下，意味者定时器会在未来的某个时间支持，但是具体的执行的时间并不能够很准确的运行，容易受到其它时间的影响，比如DOM的计算、事件的执行、各种函数的执行和运算。但是我们可以利用延迟执行的一些特性来达到我们想要的功能。</p>
+<pre><code><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">window</span>.setTimeout(callbask, delay, [param1, param2, ...])</div></pre></td></tr></table></figure>
+</code></pre>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2016/11/11/setTimeout/#more" rel="contents">
+              Weiterlesen &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/09/06/node-grade/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="jayzou">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="jayzou'blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2016/09/06/node-grade/" itemprop="url">node-grade 离线生成图片未加载前背景</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-09-06T00:00:00+08:00">
+                2016-09-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/自造轮子/" itemprop="url" rel="index">
+                    <span itemprop="name">自造轮子</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>serve端的可以预处理图片背景，代替图片未加载之前的空白背景</p>
+<h2 id="展示"><a href="#展示" class="headerlink" title="展示"></a>展示</h2><p><a href="http://jayzou.github.io/demo/node-grade/index.html" target="_blank" rel="external">node-grade</a></p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>npm install node-grade</p>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> Grade = <span class="built_in">require</span>(<span class="string">'./src/node-grade'</span>);</div><div class="line"><span class="keyword">var</span> grade = <span class="keyword">new</span> Grade(&#123;</div><div class="line">     <span class="attr">img</span> : <span class="string">'./res/inside-out.jpg'</span></div><div class="line"> &#125;);</div><div class="line"><span class="comment">/*</span></div><div class="line">background-image: -webkit-linear-gradient(135deg,rgb(107,60,154) 0%,rgb(59,1,152) 75%);</div><div class="line">background-image: linear-gradient(135deg,rgb(107,60,154) 0%,rgb(59,1,152) 75%)；</div><div class="line">*/</div></pre></td></tr></table></figure>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2016/09/06/node-grade/#more" rel="contents">
+              Weiterlesen &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/12/16/react-native-layout/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="jayzou">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="jayzou'blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2015/12/16/react-native-layout/" itemprop="url">【布局篇】react-native</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2015-12-16T00:00:00+08:00">
+                2015-12-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/分享/" itemprop="url" rel="index">
+                    <span itemprop="name">分享</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>这里以三种经典布局来讲解react-native布局概念，主要以flexbox为主，react native中有两个基本元素&lt; View &gt;与&lt; Text &gt;，分别类似于web端div和span，用于布局和修饰。需要注意的是，react native不是所有的CSS属性都支持，这里有react native所支持的<a href="https://facebook.github.io/react-native/docs/flexbox.html#content" target="_blank" rel="external">CSS属性</a></p>
+<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><p>在JSX中写样式还是有点不习惯，这里使用<a href="https://github.com/sabeurthabti/react-native-css" target="_blank" rel="external">react-native-css</a>模块来编写样式，安装、使用过程如下</p>
+<pre><code>npm install react-native-css -g 
+react-native-css -i style.css -o style.js --watch
+</code></pre>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2015/12/16/react-native-layout/#more" rel="contents">
+              Weiterlesen &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/12/08/react-native-simple/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="jayzou">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="jayzou'blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2015/12/08/react-native-simple/" itemprop="url">【入门篇】react-native</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2015-12-08T00:00:00+08:00">
+                2015-12-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/分享/" itemprop="url" rel="index">
+                    <span itemprop="name">分享</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>这里以编写react-native android应用程序作为例子来讲解（为毛不用IOS？因为没有mac，也不想装黑苹果）</p>
+<h2 id="搭建基础环境"><a href="#搭建基础环境" class="headerlink" title="搭建基础环境"></a>搭建基础环境</h2><p><a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html" target="_blank" rel="external">JDK</a>（必须，不解释）<br><a href="http://developer.android.com/intl/zh-cn/sdk/installing/index.html" target="_blank" rel="external">SDK</a>（建议使用<a href="http://developer.android.com/intl/zh-cn/sdk/index.html" target="_blank" rel="external">Android Studio</a>，集成SDK以及模拟器）<br><a href="https://www.genymotion.com/" target="_blank" rel="external">genymotion</a>（如果是使用真机或者Android Studio自带的模拟器，可以选择不装）<br><a href="https://github.com/creationix/nvm" target="_blank" rel="external">NVM</a>（node版本控制器，需要node4.0以上版本）</p>
+<p>以上配置不是必须，可自行选择适合自己的环境，部分安装过程可能会涉及到翻墙，需要配置代理</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2015/12/08/react-native-simple/#more" rel="contents">
+              Weiterlesen &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/10/25/slide/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="jayzou">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="jayzou'blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2015/10/25/slide/" itemprop="url">滑屏组件</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2015-10-25T00:00:00+08:00">
+                2015-10-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/自造轮子/" itemprop="url" rel="index">
+                    <span itemprop="name">自造轮子</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h1 id="slide"><a href="#slide" class="headerlink" title="slide"></a>slide</h1><p>滑屏组件</p>
+<ul>
+<li>自定义滑屏组件，可定制滑屏动画</li>
+<li>可控制每屏动画效果</li>
+</ul>
+<h2 id="Install"><a href="#Install" class="headerlink" title="Install"></a>Install</h2><pre><code>git clone https://github.com/jayZOU/slide.git
+npm install
+gulp
+</code></pre>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2015/10/25/slide/#more" rel="contents">
+              Weiterlesen &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/09/15/preload/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="jayzou">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="jayzou'blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2015/09/15/preload/" itemprop="url">资源预加载组件</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2015-09-15T00:00:00+08:00">
+                2015-09-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/自造轮子/" itemprop="url" rel="index">
+                    <span itemprop="name">自造轮子</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h1 id="preload"><a href="#preload" class="headerlink" title="preload"></a>preload</h1><p>静态资源预加载组件  </p>
+<h2 id="features"><a href="#features" class="headerlink" title="features"></a>features</h2><ol>
+<li>每个模块均可单独引入  </li>
+<li>支持amd、cjs、es、iife、umd多种形式使用  </li>
+<li>打包三个模块压缩之后整体大小小于4KB  </li>
+</ol>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2015/09/15/preload/#more" rel="contents">
+              Weiterlesen &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+  </section>
+
+  
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+  </nav>
+
+
+
+          </div>
+          
+
+
+          
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview sidebar-panel sidebar-panel-active">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="jayzou" />
+          <p class="site-author-name" itemprop="name">jayzou</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name">Artikel</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">Kategorien</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name">Tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/jayZOU" target="_blank" title="GitHub">
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://segmentfault.com/u/jayzou" target="_blank" title="segmentfault">
+                  
+                  segmentfault
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/zou-shi-jie-69" target="_blank" title="知乎">
+                  
+                  知乎
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2015 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">jayzou</span>
+</div>
+
+
+<div class="powered-by">
+  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
 
   </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+    <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
 </body>
 </html>

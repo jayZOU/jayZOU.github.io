@@ -1,0 +1,1154 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="javascript,react-native," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="简介这里以三种经典布局来讲解react-native布局概念，主要以flexbox为主，react native中有两个基本元素&amp;lt; View &amp;gt;与&amp;lt; Text &amp;gt;，分别类似于web端div和span，用于布局和修饰。需要注意的是，react native不是所有的CSS属性都支持，这里有react native所支持的CSS属性 准备工作在JSX中写样式还是有点不习惯，这里">
+<meta name="keywords" content="javascript,react-native">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【布局篇】react-native">
+<meta property="og:url" content="http://yoursite.com/2015/12/16/react-native-layout/index.html">
+<meta property="og:site_name" content="jayzou&#39;blog">
+<meta property="og:description" content="简介这里以三种经典布局来讲解react-native布局概念，主要以flexbox为主，react native中有两个基本元素&amp;lt; View &amp;gt;与&amp;lt; Text &amp;gt;，分别类似于web端div和span，用于布局和修饰。需要注意的是，react native不是所有的CSS属性都支持，这里有react native所支持的CSS属性 准备工作在JSX中写样式还是有点不习惯，这里">
+<meta property="og:image" content="http://7xl041.com1.z0.glb.clouddn.com/react-native-e.png">
+<meta property="og:image" content="http://7xl041.com1.z0.glb.clouddn.com/react-native-f.png">
+<meta property="og:image" content="http://7xl041.com1.z0.glb.clouddn.com/react-native-g.jpg">
+<meta property="og:updated_time" content="2017-06-26T11:40:07.526Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="【布局篇】react-native">
+<meta name="twitter:description" content="简介这里以三种经典布局来讲解react-native布局概念，主要以flexbox为主，react native中有两个基本元素&amp;lt; View &amp;gt;与&amp;lt; Text &amp;gt;，分别类似于web端div和span，用于布局和修饰。需要注意的是，react native不是所有的CSS属性都支持，这里有react native所支持的CSS属性 准备工作在JSX中写样式还是有点不习惯，这里">
+<meta name="twitter:image" content="http://7xl041.com1.z0.glb.clouddn.com/react-native-e.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'jayzou'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2015/12/16/react-native-layout/"/>
+
+
+
+
+
+  <title>【布局篇】react-native | jayzou'blog</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">jayzou'blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Startseite
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archiv
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/12/16/react-native-layout/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="jayzou">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="jayzou'blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">【布局篇】react-native</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2015-12-16T00:00:00+08:00">
+                2015-12-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/分享/" itemprop="url" rel="index">
+                    <span itemprop="name">分享</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>这里以三种经典布局来讲解react-native布局概念，主要以flexbox为主，react native中有两个基本元素&lt; View &gt;与&lt; Text &gt;，分别类似于web端div和span，用于布局和修饰。需要注意的是，react native不是所有的CSS属性都支持，这里有react native所支持的<a href="https://facebook.github.io/react-native/docs/flexbox.html#content" target="_blank" rel="external">CSS属性</a></p>
+<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><p>在JSX中写样式还是有点不习惯，这里使用<a href="https://github.com/sabeurthabti/react-native-css" target="_blank" rel="external">react-native-css</a>模块来编写样式，安装、使用过程如下</p>
+<pre><code>npm install react-native-css -g 
+react-native-css -i style.css -o style.js --watch
+</code></pre><a id="more"></a> 
+<h2 id="布局讲解"><a href="#布局讲解" class="headerlink" title="布局讲解"></a>布局讲解</h2><h3 id="左右布局"><a href="#左右布局" class="headerlink" title="左右布局"></a>左右布局</h3><p>由于是横向布局，我们需要flex-direction: row（默认纵向布局），左右以1:1方式排版，就都需要flex:1，布局容器也需要加上flex:1，表示为伸缩容器。由于react native没有br标签，需要换行只能将换行符插入。</p>
+<p><strong>样式表：</strong></p>
+<pre><code>wrap {
+  flex:1;
+  flex-direction: row;
+  background-color: yellow;
+}
+
+left{
+  flex:1;
+  background-color: #64BA9D;
+}
+
+right{
+  flex:1;
+  background-color: #008E59;
+}
+
+text{
+  padding:10;
+  font-size:16;
+  color:#EEEEEE;
+  line-height:20;
+  text-align: center;
+}
+</code></pre><p><strong>页面结构：</strong></p>
+<pre><code>&lt;View style={styles.wrap}&gt;
+    &lt;View style={styles.left}&gt;
+      &lt;Text style={styles.text}&gt;
+        这是左侧栏{&apos;\n&apos;}
+        这是左侧栏{&apos;\n&apos;}
+        这是左侧栏{&apos;\n&apos;}
+        这是左侧栏{&apos;\n&apos;}
+      &lt;/Text&gt;
+    &lt;/View&gt;
+    &lt;View style={styles.right}&gt;
+      &lt;Text style={styles.text}&gt;
+        这是右侧栏{&apos;\n&apos;}
+        这是右侧栏{&apos;\n&apos;}
+        这是右侧栏{&apos;\n&apos;}
+        这是右侧栏{&apos;\n&apos;}
+      &lt;/Text&gt;
+    &lt;/View&gt;
+&lt;/View&gt;
+</code></pre><p><img src="http://7xl041.com1.z0.glb.clouddn.com/react-native-e.png" alt="此处输入图片的描述"></p>
+<h3 id="左中右布局"><a href="#左中右布局" class="headerlink" title="左中右布局"></a>左中右布局</h3><p>左右定宽，中间占满</p>
+<p><strong>样式表：</strong></p>
+<pre><code>wrap {
+  flex:1;
+  flex-direction: row;
+  background-color: yellow;
+}
+
+left{
+  width: 80;
+  background-color: #64BA9D;
+}
+
+centent{
+  flex:1;
+  background-color: #a9ea00;
+}
+
+right{
+  width: 80;
+  background-color: #008E59;
+}
+
+text{
+  padding:10;
+  font-size:16;
+  color:#EEEEEE;
+  line-height:20;
+  text-align: center;
+}
+</code></pre><p><strong>页面结构：</strong></p>
+<pre><code>&lt;View style={styles.wrap}&gt;
+    &lt;View style={styles.left}&gt;
+      &lt;Text style={styles.text}&gt;
+        这是左侧栏{&apos;\n&apos;}
+        这是左侧栏{&apos;\n&apos;}
+        这是左侧栏{&apos;\n&apos;}
+        这是左侧栏{&apos;\n&apos;}
+      &lt;/Text&gt;
+    &lt;/View&gt;
+    &lt;View style={styles.centent}&gt;
+      &lt;Text style={styles.text}&gt;
+        这是内容区{&apos;\n&apos;}
+        这是内容区{&apos;\n&apos;}
+        这是内容区{&apos;\n&apos;}
+        这是内容区{&apos;\n&apos;}
+      &lt;/Text&gt;
+    &lt;/View&gt;
+    &lt;View style={styles.right}&gt;
+      &lt;Text style={styles.text}&gt;
+        这是右侧栏{&apos;\n&apos;}
+        这是右侧栏{&apos;\n&apos;}
+        这是右侧栏{&apos;\n&apos;}
+        这是右侧栏{&apos;\n&apos;}
+      &lt;/Text&gt;
+    &lt;/View&gt;
+&lt;/View&gt;
+</code></pre><p><img src="http://7xl041.com1.z0.glb.clouddn.com/react-native-f.png" alt="此处输入图片的描述"></p>
+<h3 id="上中下布局"><a href="#上中下布局" class="headerlink" title="上中下布局"></a>上中下布局</h3><p>类似新闻和门户APP的布局，上下贴边，中间为内容区（带滚动条，后续组件篇再讲解）</p>
+<p><strong>样式表：</strong></p>
+<pre><code>wrap {
+  flex:1;
+  flex-direction:column;
+}
+
+top{
+  height: 40;
+  background-color: #008E59;
+}
+centent{
+  flex:1;
+  background-color: #64BA9D;
+}
+
+bottom{
+  height: 40;
+  background-color: #a9ea00;
+}
+
+text{
+  padding:10;
+  font-size:16;
+  color:#fff;
+  line-height:20;
+  text-align: center;
+}
+</code></pre><p><strong>页面结构：</strong></p>
+<pre><code>&lt;View style={styles.wrap}&gt;
+    &lt;View style={styles.top}&gt;
+      &lt;Text style={styles.text}&gt;
+        头部信息
+      &lt;/Text&gt;
+    &lt;/View&gt;
+    &lt;View style={styles.centent}&gt;
+      &lt;Text style={styles.text}&gt;
+        这是内容区{&apos;\n&apos;}
+      &lt;/Text&gt;
+    &lt;/View&gt;
+    &lt;View style={styles.bottom}&gt;
+      &lt;Text style={styles.text}&gt;
+        尾部信息
+      &lt;/Text&gt;
+    &lt;/View&gt;
+&lt;/View&gt;
+</code></pre><h3 id="综合布局"><a href="#综合布局" class="headerlink" title="综合布局"></a>综合布局</h3><p>简单模拟网易新闻APP布局<br><img src="http://7xl041.com1.z0.glb.clouddn.com/react-native-g.jpg" alt="此处输入图片的描述"></p>
+<p>我们可以简单看看APP布局方式，总体来说就是<strong>上中下</strong>的布局方式，我们可以初步先编写外部结构<br><strong>页面结构：</strong></p>
+<pre><code>&lt;View style={styles.wrap}&gt;
+    &lt;View style={styles.top}&gt;
+      &lt;Text&gt;头部&lt;/Text&gt;
+    &lt;/View&gt;
+    &lt;View style={styles.cententWrap}&gt;
+      &lt;Text&gt;新闻主题&lt;/Text&gt;
+    &lt;/View&gt;
+    &lt;View style={styles.bottom}&gt;
+      &lt;Text&gt;
+        尾部导航
+      &lt;/Text&gt;
+    &lt;/View&gt;
+&lt;/View&gt;
+</code></pre><p><strong>样式表：</strong></p>
+<pre><code>wrap {
+  flex:1;
+  flex-direction:column;
+}
+top{
+  height: 40;
+  background-color: #EC403C;
+}
+cententWrap{
+  flex:1;
+  flex-direction:column;
+}
+bottom{
+  height: 40;
+}
+</code></pre><p>大致结构算是搭建完毕，开始完善头部展示（偷懒、不想切图，就用个title代替就好啦~~~）<br><strong>页面结构：</strong></p>
+<pre><code>&lt;View style={styles.wrap}&gt;
+    &lt;View style={styles.top}&gt;
+      &lt;Text style={styles.topTitle}&gt;网易&lt;/Text&gt;
+    &lt;/View&gt;
+    &lt;View style={styles.cententWrap}&gt;
+      &lt;Text&gt;新闻主题&lt;/Text&gt;
+    &lt;/View&gt;
+    &lt;View style={styles.bottom}&gt;
+      &lt;Text&gt;
+        尾部导航
+      &lt;/Text&gt;
+    &lt;/View&gt;
+&lt;/View&gt;
+</code></pre><p><strong>样式表：</strong></p>
+<pre><code>topTitle{
+  margin-top: 15;
+  margin-left: 20;
+  text-align: left;
+  font-size: 14;
+  color:#FFF;
+}
+</code></pre><p>头部内容完成之后，就完善内容区域的导航条，但是react-native并没有提供ul、li标签（也许以后有），这个是要View来代替ul，Text代替li，代码和数据如下：<br><strong>页面结构：</strong></p>
+<pre><code>var cententNav = [&apos;头条&apos;, &apos;热点&apos;, &apos;娱乐&apos;, &apos;体育&apos;, &apos;财经&apos;];
+return (
+  &lt;View style={styles.wrap}&gt;
+    &lt;View style={styles.top}&gt;
+      &lt;Text style={styles.topTitle}&gt;网易&lt;/Text&gt;
+    &lt;/View&gt;
+    &lt;View style={styles.cententWrap}&gt;
+      &lt;View style={styles.cententNav}&gt;
+        {
+          cententNav.map(function(el, index){
+            return &lt;Text style={styles.cententNavText}&gt;
+              &lt;Text style={index == 0 ? styles.textR : &quot;&quot;}&gt;{cententNav[index]}&lt;/Text&gt;
+            &lt;/Text&gt;
+
+          })
+        }
+      &lt;/View&gt;
+    &lt;/View&gt;
+    &lt;View style={styles.bottom}&gt;
+      &lt;Text&gt;
+        尾部导航
+      &lt;/Text&gt;
+    &lt;/View&gt;
+  &lt;/View&gt;
+);
+</code></pre><p><strong>样式表：</strong></p>
+<pre><code>cententWrap{
+  flex:1;
+  flex-direction:column;
+}
+cententNav{
+  flex-direction: row;
+  height: 20;
+  margin-left: 5;
+  margin-top: 5;
+  margin-right: 5;
+}
+cententNavText{
+  width: 60;
+  font-size: 14;
+  color: #9C9C9C;
+  margin-left: 10;
+}
+</code></pre><p>新闻主题方面可以划分为左右两栏，左栏固定宽，右栏占满，由于react-native不支持overflow:scroll属性，这里会用到一个ScrollView的滚动条组件来展示新闻概述，篇幅可能较长，底部就不再编写了（就是懒~~），大家各自完善吧，以下是全部的布局代码和样式。</p>
+<p><strong>页面结构：</strong></p>
+<pre><code>render: function() {
+// var repeatArr = Array(100).join(&quot;1&quot;).split(&quot;&quot;)
+var cententNav = [&apos;头条&apos;, &apos;热点&apos;, &apos;娱乐&apos;, &apos;体育&apos;, &apos;财经&apos;],
+    NEW_DATA = [
+      {
+        img: &quot;http://7xl041.com1.z0.glb.clouddn.com/new1.png&quot;,
+        title: &quot;李克强宴请上合各参会领导人&quot;,
+        content: &quot;称会议阐释了上合组织\“大家庭\”的深厚友谊和良好氛围&quot;,
+        typeImg: &quot;http://7xl041.com1.z0.glb.clouddn.com/new-type1.png&quot;
+      },
+      //.....类似数据
+    ];
+
+return (
+  &lt;View style={styles.wrap}&gt;
+    &lt;View style={styles.top}&gt;
+      &lt;Text style={styles.topTitle}&gt;网易&lt;/Text&gt;
+    &lt;/View&gt;
+    &lt;View style={styles.cententWrap}&gt;
+      &lt;View style={styles.cententNav}&gt;
+        {
+          cententNav.map(function(el, index){
+            return &lt;Text style={styles.cententNavText}&gt;
+              &lt;Text style={index == 0 ? styles.textR : &quot;&quot;}&gt;{cententNav[index]}&lt;/Text&gt;
+            &lt;/Text&gt;
+
+          })
+        }
+      &lt;/View&gt;
+      &lt;ScrollView style={styles.centent}&gt;
+        {
+          NEW_DATA.map(function(el, index){
+            return (
+              &lt;View&gt;
+                &lt;View style={styles.cententLi}&gt;
+                  &lt;Image source={{uri: NEW_DATA[index].img}} style={styles.cententImg} /&gt;
+                  &lt;View style={styles.rightCentent}&gt;
+                    &lt;Text style={styles.cententTitle}&gt;{NEW_DATA[index].title}&lt;/Text&gt;
+                    &lt;Text style={styles.cententCentent}&gt;{NEW_DATA[index].content}&lt;/Text&gt;
+                  &lt;/View&gt;
+                  &lt;Image source={{uri: NEW_DATA[index].typeImg}} style={styles.cententType} /&gt;
+                &lt;/View&gt;
+                &lt;View style={styles.line}&gt;&lt;/View&gt;
+              &lt;/View&gt;
+            )
+          })
+        }
+      &lt;/ScrollView&gt;
+    &lt;/View&gt;
+    &lt;View style={styles.bottom}&gt;
+      &lt;Text style={styles.text}&gt;
+        尾部信息
+      &lt;/Text&gt;
+    &lt;/View&gt;
+  &lt;/View&gt;
+);
+</code></pre><p>  }</p>
+<p><strong>样式表：</strong></p>
+<pre><code>wrap {
+  flex:1;
+  flex-direction:column;
+}
+
+top{
+  height: 40;
+  background-color: #EC403C;
+}
+topTitle{
+  margin-top: 15;
+  margin-left: 20;
+  text-align: left;
+  font-size: 14;
+  color:#FFF;
+}
+
+cententWrap{
+  flex:1;
+  flex-direction:column;
+}
+cententNav{
+  flex-direction: row;
+  height: 20;
+  margin-left: 5;
+  margin-top: 5;
+  margin-right: 5;
+}
+cententNavText{
+  width: 60;
+  font-size: 14;
+  color: #9C9C9C;
+  margin-left: 10;
+}
+centent{
+  flex:1;
+  flex-direction:column;
+  borderBottomWidth:1;
+}
+cententLi{
+  flex-direction: row;
+  margin-left: 10;
+  margin-right: 10;
+}
+cententImg{
+  width: 80;
+  height: 80;
+}
+cententTitle{
+  font-size: 16;
+  color: #232323;
+  margin-bottom: 3;
+}
+cententCentent{
+  font-size: 12;
+}
+rightCentent{
+  flex: 1;
+  padding-left: 5;
+  padding-top: 5;
+  padding-right: 5;
+  padding-bottom: 5;
+}
+cententType{
+  width: 40;
+  height: 22;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+bottom{
+  height: 40;
+}
+
+text{
+  padding:10;
+  font-size:16;
+  color:#000;
+  line-height:20;
+  text-align: center;
+}
+
+textR{
+  font-weight: bold;
+  color:#EC403C;
+}
+line{
+  height: 1;
+  background-color: #E4E4E4;
+  margin-left: 10;
+  margin-right: 10;
+  margin-top: 7;
+  margin-bottom: 7;
+}
+</code></pre><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>以上就是一些布局的描述，总得来说现在react-native能支持的CSS属性还不多，比如上面说的overflow，也许以后会更加完善。<br>下一篇打算写写android自带的一些组件，给大家分享用法和坑，欢迎大家点评，如果有说的不对的地方，欢迎指出</p>
+<p>##参考文档</p>
+<p><a href="http://www.html-js.com/article/Native-react-native-react-layout%203322" target="_blank" rel="external">http://www.html-js.com/article/Native-react-native-react-layout%203322</a></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/javascript/" rel="tag"># javascript</a>
+          
+            <a href="/tags/react-native/" rel="tag"># react-native</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/12/08/react-native-simple/" rel="next" title="【入门篇】react-native">
+                <i class="fa fa-chevron-left"></i> 【入门篇】react-native
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/09/06/node-grade/" rel="prev" title="node-grade 离线生成图片未加载前背景">
+                node-grade 离线生成图片未加载前背景 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Inhaltsverzeichnis
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Übersicht
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="jayzou" />
+          <p class="site-author-name" itemprop="name">jayzou</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name">Artikel</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">Kategorien</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name">Tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/jayZOU" target="_blank" title="GitHub">
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://segmentfault.com/u/jayzou" target="_blank" title="segmentfault">
+                  
+                  segmentfault
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/zou-shi-jie-69" target="_blank" title="知乎">
+                  
+                  知乎
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#准备工作"><span class="nav-number">2.</span> <span class="nav-text">准备工作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#布局讲解"><span class="nav-number">3.</span> <span class="nav-text">布局讲解</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#左右布局"><span class="nav-number">3.1.</span> <span class="nav-text">左右布局</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#左中右布局"><span class="nav-number">3.2.</span> <span class="nav-text">左中右布局</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#上中下布局"><span class="nav-number">3.3.</span> <span class="nav-text">上中下布局</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#综合布局"><span class="nav-number">3.4.</span> <span class="nav-text">综合布局</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">4.</span> <span class="nav-text">总结</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2015 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">jayzou</span>
+</div>
+
+
+<div class="powered-by">
+  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

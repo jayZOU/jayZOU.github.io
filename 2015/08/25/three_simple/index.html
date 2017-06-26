@@ -1,0 +1,834 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="javascript,webgl,Three," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="相信很多人都看过微软2015开发者大会，其中有一段讲解window holographic让我觉得特别惊讶，我一直以为虚拟投影暂时还是人们幻想中的一种技术，现在确实是展示在我面前，也让我有一种想要弄懂其中奥秘的激情。从2D到3D的视觉转换到底有什么不同呢？作为一名菜鸟级别的前端开发者，我决定从Three.js方面入手，去理解3D世界的构成。 相对于2D的网页，我们可以仅仅依靠我们自己的眼睛来浏览页">
+<meta name="keywords" content="javascript,webgl,Three">
+<meta property="og:type" content="article">
+<meta property="og:title" content="3D世界中的眼睛1--照相机">
+<meta property="og:url" content="http://yoursite.com/2015/08/25/three_simple/index.html">
+<meta property="og:site_name" content="jayzou&#39;blog">
+<meta property="og:description" content="相信很多人都看过微软2015开发者大会，其中有一段讲解window holographic让我觉得特别惊讶，我一直以为虚拟投影暂时还是人们幻想中的一种技术，现在确实是展示在我面前，也让我有一种想要弄懂其中奥秘的激情。从2D到3D的视觉转换到底有什么不同呢？作为一名菜鸟级别的前端开发者，我决定从Three.js方面入手，去理解3D世界的构成。 相对于2D的网页，我们可以仅仅依靠我们自己的眼睛来浏览页">
+<meta property="og:image" content="http://7xl041.com1.z0.glb.clouddn.com/c.png">
+<meta property="og:image" content="http://7xl041.com1.z0.glb.clouddn.com/OrthographicCamera.png">
+<meta property="og:image" content="http://7xl041.com1.z0.glb.clouddn.com/d.png">
+<meta property="og:image" content="http://7xl041.com1.z0.glb.clouddn.com/cue1.png">
+<meta property="og:image" content="http://7xl041.com1.z0.glb.clouddn.com/cue2.png">
+<meta property="og:image" content="http://7xl041.com1.z0.glb.clouddn.com/cue3.png">
+<meta property="og:image" content="http://7xl041.com1.z0.glb.clouddn.com/cue4.png">
+<meta property="og:image" content="http://7xl041.com1.z0.glb.clouddn.com/oer.png">
+<meta property="og:image" content="http://7xl041.com1.z0.glb.clouddn.com/cue5.png">
+<meta property="og:image" content="http://7xl041.com1.z0.glb.clouddn.com/cue6.png">
+<meta property="og:image" content="http://7xl041.com1.z0.glb.clouddn.com/b.png">
+<meta property="og:image" content="http://7xl041.com1.z0.glb.clouddn.com/spreads.gif">
+<meta property="og:image" content="http://7xl041.com1.z0.glb.clouddn.com/audio.gif">
+<meta property="og:updated_time" content="2017-06-26T11:30:11.067Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="3D世界中的眼睛1--照相机">
+<meta name="twitter:description" content="相信很多人都看过微软2015开发者大会，其中有一段讲解window holographic让我觉得特别惊讶，我一直以为虚拟投影暂时还是人们幻想中的一种技术，现在确实是展示在我面前，也让我有一种想要弄懂其中奥秘的激情。从2D到3D的视觉转换到底有什么不同呢？作为一名菜鸟级别的前端开发者，我决定从Three.js方面入手，去理解3D世界的构成。 相对于2D的网页，我们可以仅仅依靠我们自己的眼睛来浏览页">
+<meta name="twitter:image" content="http://7xl041.com1.z0.glb.clouddn.com/c.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'jayzou'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2015/08/25/three_simple/"/>
+
+
+
+
+
+  <title>3D世界中的眼睛1--照相机 | jayzou'blog</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">jayzou'blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Startseite
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archiv
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/08/25/three_simple/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="jayzou">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="jayzou'blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">3D世界中的眼睛1--照相机</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2015-08-25T00:00:00+08:00">
+                2015-08-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/分享/" itemprop="url" rel="index">
+                    <span itemprop="name">分享</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>相信很多人都看过微软2015开发者大会，其中有一段讲解<a href="https://www.youtube.com/watch?v=ftFdW4YZZiU" target="_blank" rel="external">window holographic</a>让我觉得特别惊讶，我一直以为虚拟投影暂时还是人们幻想中的一种技术，现在确实是展示在我面前，也让我有一种想要弄懂其中奥秘的激情。从2D到3D的视觉转换到底有什么不同呢？作为一名菜鸟级别的前端开发者，我决定从<strong>Three.js</strong>方面入手，去理解3D世界的构成。</p>
+<p>相对于2D的网页，我们可以仅仅依靠我们自己的眼睛来浏览页面。但是对于3D的世界，仅仅依靠自己的眼睛还是不够，因为其中存在的“面”是无穷无尽的，所以我们需要一只特殊的眼睛“照相机”，来帮助我们浏览3D世界。</p>
+<p>在讲解相机之前，我们需要给3D的世界来一个定位，在2D页面中，我们一般会将页面的左上角作为一个原点，这样一来，整个页面都可以通过X、Y来定位，同样的3D也是这样，下图为3D世界的坐标定位。<br><img src="http://7xl041.com1.z0.glb.clouddn.com/c.png" alt="此处输入图片的描述"></p>
+<blockquote>
+<p>以下内容会涉及到具体代码的实现，如果有读者只想了解相机的原理，那么可以直接跳到最后一段的总结上面。</p>
+</blockquote>
+<a id="more"></a> 
+<h2 id="正交投影照相机"><a href="#正交投影照相机" class="headerlink" title="正交投影照相机"></a>正交投影照相机</h2><p>正交投影相机的效果比较直观，相当于三视图中的主（正）视图，由6个参数和相机定位决定相机的位置和可视区域，其中(right-left)代表相机的宽度，(top-bottom)代表相机的高度，near代表相机的最近点，far代表相机的最远点。其代码设置如下：</p>
+<pre><code>THREE.OrthographicCamera(left, right, top, bottom, near, far)
+</code></pre><p>效果图如下，其中灰色部分代表可视区域，可视区域代表你能看到的地方。</p>
+<p><img src="http://7xl041.com1.z0.glb.clouddn.com/OrthographicCamera.png" alt="此处输入图片的描述"></p>
+<h3 id="基本设置"><a href="#基本设置" class="headerlink" title="基本设置"></a>基本设置</h3><p>设置相机的基本属性:</p>
+<pre><code>var camera = new THREE.OrthographicCamera(-2, 2, 1.5, -1.5, 1, 10);
+camera.position.set(0, 0, 5);
+scene.add(camera);
+</code></pre><p>在原点位置创建边长为1的正方体，使用wireframe作为透视观察。</p>
+<pre><code>var geometry = new THREE.Mesh(new THREE.BoxGeometry(1, 1, 1),
+    new THREE.MeshBasicMaterial({
+        color: 0xff0000,
+        wireframe: true
+    })
+);
+scene.add(geometry);
+</code></pre><p>最后得到的效果如下，这里我们只看到一个矩形，是因为生成的正方体默认在于原点，相机初始化的位置在(0,0,5)，镜头默认对向-Z轴，这样一来的话，相当于看到正方体的一个侧面，也就是主视图。</p>
+<p><img src="http://7xl041.com1.z0.glb.clouddn.com/d.png" alt="此处输入图片的描述"></p>
+<p>假如将相机的near属性变为6，此时的正方体将超出相机的可视区域，效果如下<br><img src="http://7xl041.com1.z0.glb.clouddn.com/cue1.png" alt="此处输入图片的描述"></p>
+<h3 id="长宽比例的影响"><a href="#长宽比例的影响" class="headerlink" title="长宽比例的影响"></a>长宽比例的影响</h3><p>这里相机的宽度和高度分别是4和3，假如将宽度设置为2，即</p>
+<pre><code>var camera = new THREE.OrthographicCamera(-1, 1, 1.5, -1.5, 1, 10);
+</code></pre><p>得到的效果图如下：<br><img src="http://7xl041.com1.z0.glb.clouddn.com/cue2.png" alt="此处输入图片的描述"><br>可以看到水平方向被拉大</p>
+<h3 id="位置的影响"><a href="#位置的影响" class="headerlink" title="位置的影响"></a>位置的影响</h3><p>之前相机设置在(0,0,5)的位置，由于相机是默认面向-Z轴，可以看到正方体，假如将相机往右平移1个单位，得到效果如下：</p>
+<pre><code>var camera = new THREE.OrthographicCamera(-2, 2, 1.5, -1.5, 1, 10);
+camera.position.set(1,0,5);
+</code></pre><p><img src="http://7xl041.com1.z0.glb.clouddn.com/cue3.png" alt="此处输入图片的描述"><br>可以看到物体向左平移了，其实这个也不难理解，就好像一个相对运动的原理一样，你往右走，对于物体来讲，实际是往左移动。</p>
+<p>同样的我们可以将相机默认的6个参数<strong>(-2, 2, 1.5, -1.5, 1, 10)</strong>改变为<strong>(-1, 3, 1.5, -1.5, 1, 10)</strong>，通过观察，可以发现和上图的效果是一样的。也说明了left、right和top、bottom的数值只决定相机的宽度和高度，一般宽度和高度的比例和渲染区域的宽高比例是一致的，不然会出现压缩或者拉伸的现象。</p>
+<h3 id="改变观察角度"><a href="#改变观察角度" class="headerlink" title="改变观察角度"></a>改变观察角度</h3><p>为了能观察到整个立方体的结构，将相机的位置设为(4, -3, 5)，由于相机默认拍摄的方向是Z的负轴，此时是观察不到立方体，我们可以设置相机，让它指定原点进行拍摄</p>
+<pre><code>camera.position.set(4, -3, 5);
+camera.lookAt(new THREE.Vector3(0, 0, 0));
+</code></pre><p>效果如下：<br><img src="http://7xl041.com1.z0.glb.clouddn.com/cue4.png" alt="此处输入图片的描述"><br>需要注意的是lookAt接受的是THREE.Vector3的实例，不能直接设置camera.lookAt(0, 0, 0)，不然无法得到理想中的结果。</p>
+<h2 id="透视投影照相机"><a href="#透视投影照相机" class="headerlink" title="透视投影照相机"></a>透视投影照相机</h2><p>创建代码如下：</p>
+<pre><code>THREE.PerspectiveCamera(fov, aspect, near, far)
+</code></pre><p>fov，代表竖直方向的张角（角度制）。<br>aspect，代表水平长度和竖直长度的比值（一般是渲染区域的长和宽）。<br>near，代表拍摄的最近距离。<br>far，代表拍摄的最远距离。</p>
+<p><img src="http://7xl041.com1.z0.glb.clouddn.com/oer.png" alt="此处输入图片的描述"></p>
+<h3 id="基本设置-1"><a href="#基本设置-1" class="headerlink" title="基本设置"></a>基本设置</h3><p>创建透视投影照相机代码：</p>
+<pre><code>var camera = new THREE.PerspectiveCamera(45, 400 / 300, 1, 10);
+camera.position.set(0, 0, 5);
+scene.add(camera);
+</code></pre><p>创建边长为1的正方体：</p>
+<pre><code>var cube = new THREE.Mesh(new THREE.BoxGeometry(1, 1, 1),
+    new THREE.MeshBasicMaterial({
+        color: 0xff0000,
+        wireframe: true
+    })
+);
+scene.add(cube);
+</code></pre><p>得到的效果：<br><img src="http://7xl041.com1.z0.glb.clouddn.com/cue5.png" alt="此处输入图片的描述"></p>
+<h3 id="竖直方向张角的比例"><a href="#竖直方向张角的比例" class="headerlink" title="竖直方向张角的比例"></a>竖直方向张角的比例</h3><p>将原来相机竖直张角45改成60，得到的效果图如下：<br><img src="http://7xl041.com1.z0.glb.clouddn.com/cue6.png" alt="此处输入图片的描述"></p>
+<p>可以看到，得到的物体变小，原因是因为其张角变大，导致可视区域变大，相对于物体来说就变小。</p>
+<h3 id="位置影响"><a href="#位置影响" class="headerlink" title="位置影响"></a>位置影响</h3><p>将相机所在的位置向右平移一位，代码设置和效果图如下，为了结果更加清晰，取消透视。</p>
+<pre><code>var camera = new THREE.PerspectiveCamera(45, 1000 / 1000, 1, 10);
+camera.position.set(1, 0, 5);
+scene.add(camera);
+
+var cube = new THREE.Mesh(new THREE.BoxGeometry(1, 1, 1),
+    new THREE.MeshBasicMaterial({
+        color: 0xff0000,
+        wireframe: false
+    })
+);
+</code></pre><p><img src="http://7xl041.com1.z0.glb.clouddn.com/b.png" alt="此处输入图片的描述"><br>可以从结果上面看出，物体向左平移了，原理和正交相机一样，不同的就是，物体旋转了一定的角度，但是正交投影相机并没有旋转。原因是因为正交投影相机“观察”物体的原理其实就是<a href="http://baike.baidu.com/view/1403280.htm" target="_blank" rel="external">平行投影</a>，而透视投影照相机的成像原理是<a href="https://zh.wikipedia.org/zh-cn/%E9%80%8F%E8%A7%86%E6%8A%95%E5%BD%B1" target="_blank" rel="external">透视投影</a>。</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>由于笔者文笔水平有限，可能有人看到这里还是不明白相机的作用，举个简单的例子，假如你面前有一个立方体，那么无论你怎么去旋转这个立方体，你最多就只能看到3个面，而无法看到背面，这时候我们就需要一个特殊的“眼睛”，来帮助我们观察立方体的背面，而相机就是用来做这种事情的。下面有一些笔者自己写的demo演示，没有什么特别酷炫的效果：)。</p>
+<p><img src="http://7xl041.com1.z0.glb.clouddn.com/spreads.gif" alt="此处输入图片的描述"><br><img src="http://7xl041.com1.z0.glb.clouddn.com/audio.gif" alt="此处输入图片的描述"></p>
+<ol>
+<li><a href="http://ol.weixin.qq.com/protect/users/shijiezou/three/spreads.html" target="_blank" rel="external">http://ol.weixin.qq.com/protect/users/shijiezou/three/spreads.html</a></li>
+<li><a href="http://ol.weixin.qq.com/protect/users/shijiezou/three/earth.html" target="_blank" rel="external">http://ol.weixin.qq.com/protect/users/shijiezou/three/earth.html</a></li>
+<li><a href="http://ol.weixin.qq.com/protect/users/shijiezou/three/audio.html" target="_blank" rel="external">http://ol.weixin.qq.com/protect/users/shijiezou/three/audio.html</a><br>(上传音频文件，基本功能实现了，但是还没做优化)</li>
+</ol>
+<p>相关资料：<br><a href="http://threejs.org/" target="_blank" rel="external">官方文档</a><br><a href="http://www.ituring.com.cn/minibook/792" target="_blank" rel="external">中文资料</a></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/javascript/" rel="tag"># javascript</a>
+          
+            <a href="/tags/webgl/" rel="tag"># webgl</a>
+          
+            <a href="/tags/Three/" rel="tag"># Three</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/07/09/mongoose_simple/" rel="next" title="mongoose_simple">
+                <i class="fa fa-chevron-left"></i> mongoose_simple
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/09/15/preload/" rel="prev" title="资源预加载组件">
+                资源预加载组件 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Inhaltsverzeichnis
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Übersicht
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="jayzou" />
+          <p class="site-author-name" itemprop="name">jayzou</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name">Artikel</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">Kategorien</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name">Tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/jayZOU" target="_blank" title="GitHub">
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://segmentfault.com/u/jayzou" target="_blank" title="segmentfault">
+                  
+                  segmentfault
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/zou-shi-jie-69" target="_blank" title="知乎">
+                  
+                  知乎
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#正交投影照相机"><span class="nav-number">1.</span> <span class="nav-text">正交投影照相机</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本设置"><span class="nav-number">1.1.</span> <span class="nav-text">基本设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#长宽比例的影响"><span class="nav-number">1.2.</span> <span class="nav-text">长宽比例的影响</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#位置的影响"><span class="nav-number">1.3.</span> <span class="nav-text">位置的影响</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#改变观察角度"><span class="nav-number">1.4.</span> <span class="nav-text">改变观察角度</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#透视投影照相机"><span class="nav-number">2.</span> <span class="nav-text">透视投影照相机</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本设置-1"><span class="nav-number">2.1.</span> <span class="nav-text">基本设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#竖直方向张角的比例"><span class="nav-number">2.2.</span> <span class="nav-text">竖直方向张角的比例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#位置影响"><span class="nav-number">2.3.</span> <span class="nav-text">位置影响</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-number">2.4.</span> <span class="nav-text">总结</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2015 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">jayzou</span>
+</div>
+
+
+<div class="powered-by">
+  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

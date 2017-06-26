@@ -1,0 +1,778 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="javascript,component,小程序," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="起因事情是这样的 一天早上组里还早激烈的讨论某个项目的可用性和发展前景，突然老大说了句，能不能做个小程序的版本呢？然后大家纷纷讨论起来，有反对有支持，我就说了一句，刚出来的时候搞过一会。。。然后就把我推出来了（日了狗了~~） 这个项目大概一个星期之后就要推出去了，换句话说，我要一个星期内搞个小程序的版本出来，宝宝有点慌了~~ 不过既然接手了还是要好好做的，首先的，完全自己搞肯定是来不及，项目的模块">
+<meta name="keywords" content="javascript,component,小程序">
+<meta property="og:type" content="article">
+<meta property="og:title" content="一次微信小程序的快速开发体验">
+<meta property="og:url" content="http://yoursite.com/2017/03/03/html2wxml/index.html">
+<meta property="og:site_name" content="jayzou&#39;blog">
+<meta property="og:description" content="起因事情是这样的 一天早上组里还早激烈的讨论某个项目的可用性和发展前景，突然老大说了句，能不能做个小程序的版本呢？然后大家纷纷讨论起来，有反对有支持，我就说了一句，刚出来的时候搞过一会。。。然后就把我推出来了（日了狗了~~） 这个项目大概一个星期之后就要推出去了，换句话说，我要一个星期内搞个小程序的版本出来，宝宝有点慌了~~ 不过既然接手了还是要好好做的，首先的，完全自己搞肯定是来不及，项目的模块">
+<meta property="og:updated_time" content="2017-06-26T11:53:30.250Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="一次微信小程序的快速开发体验">
+<meta name="twitter:description" content="起因事情是这样的 一天早上组里还早激烈的讨论某个项目的可用性和发展前景，突然老大说了句，能不能做个小程序的版本呢？然后大家纷纷讨论起来，有反对有支持，我就说了一句，刚出来的时候搞过一会。。。然后就把我推出来了（日了狗了~~） 这个项目大概一个星期之后就要推出去了，换句话说，我要一个星期内搞个小程序的版本出来，宝宝有点慌了~~ 不过既然接手了还是要好好做的，首先的，完全自己搞肯定是来不及，项目的模块">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'jayzou'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/03/03/html2wxml/"/>
+
+
+
+
+
+  <title>一次微信小程序的快速开发体验 | jayzou'blog</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">jayzou'blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Startseite
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archiv
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/03/html2wxml/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="jayzou">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="jayzou'blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">一次微信小程序的快速开发体验</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-03T00:00:00+08:00">
+                2017-03-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/分享/" itemprop="url" rel="index">
+                    <span itemprop="name">分享</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h2><p>事情是这样的</p>
+<p>一天早上组里还早激烈的讨论某个项目的可用性和发展前景，突然老大说了句，能不能做个小程序的版本呢？然后大家纷纷讨论起来，有反对有支持，我就说了一句，刚出来的时候搞过一会。。。然后就把我推出来了（日了狗了~~）</p>
+<p>这个项目大概一个星期之后就要推出去了，换句话说，我要一个星期内搞个小程序的版本出来，宝宝有点慌了~~</p>
+<p>不过既然接手了还是要好好做的，首先的，完全自己搞肯定是来不及，项目的模块绝对要复用起来，思索下大概有3点需要搞</p>
+<ul>
+<li><strong>HTML</strong></li>
+<li><strong>CSS</strong></li>
+<li><strong>javascript module</strong></li>
+</ul>
+<a id="more"></a> 
+<h2 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h2><p>其中CSS在小程序的叫做WXSS，基本和CSS语法类似了，也就需要将标签选择器改了，比如</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">table&#123;</div><div class="line">    //XXX</div><div class="line">&#125;</div><div class="line">//改成</div><div class="line">.table&#123;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>还有就是WXSS的尺寸单位比较推荐使用rpx，但是这里还是继续使用px，当然在响应式方面还需要自己改改，工程量不是很大</p>
+<p>##JS<br>对于JS方面就比较棘手了一点，唯一庆幸的是，原项目是用vue来做框架搭建的，仔细观察下小程序框架的语法结构，发现其实和vue很类似，都具备生命周期和各种事件绑定等等，所以在整体JS结构上面大概有几点需要修改</p>
+<ul>
+<li><strong>生命周期函数</strong></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">created: function () &#123;</div><div class="line">  //xx</div><div class="line">&#125;</div><div class="line"></div><div class="line">//改成</div><div class="line">onLoad: function() &#123;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li><strong>数据绑定</strong></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">this.container = &apos;&apos;;</div><div class="line">//改成</div><div class="line">this.setData(&#123;</div><div class="line">    &quot;container&quot;: &apos;&apos;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>剩下的就是模块的引用，小程序本身也支持ES6语法，但还是有缺陷，比如不支持promise，可以通过引入相应的polyfill 来解决，还能顺便让小程序本身的API也应用上promise</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">//util.js</div><div class="line">import Promise from &apos;./bluebird.min&apos;;</div><div class="line">export const wxPromise = function(fn) &#123;</div><div class="line">  return function (obj = &#123;&#125;) &#123;</div><div class="line">    return new Promise((resolve, reject) =&gt; &#123;</div><div class="line">      obj.success = function(res) &#123;</div><div class="line">        resolve(res);</div><div class="line">      &#125;</div><div class="line"></div><div class="line">      obj.fail = function(err) &#123;</div><div class="line">        reject(err);</div><div class="line">      &#125;</div><div class="line"></div><div class="line">      fn(obj)</div><div class="line">    &#125;)</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>可以在需要调用的地方引入，或者直接在APP.js里面封装原API，然后挂载在全局上面</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">import &#123;wxPromise&#125; from &apos;../../utils/util&apos;;</div><div class="line">let login = wxPromise(wx.login);</div><div class="line">let getUserInfo = wxPromise(wx.getUserInfo);</div><div class="line">login()</div><div class="line">    .then((res) =&gt; &#123;</div><div class="line">        console.log(res);</div><div class="line">        return getUserInfo();</div><div class="line">    &#125;)</div><div class="line">    .then((res) =&gt; &#123;</div><div class="line">        console.log(res);</div><div class="line">    &#125;)</div><div class="line">    .catch((res) =&gt; &#123;</div><div class="line">        console.log(res);</div><div class="line">    &#125;)</div></pre></td></tr></table></figure>
+<p>原项目里面的模块还调用了window对象的属性，比如localstorage、innerWidth、innerHeight等等，在开发工具里面输出<strong>console.log(window)</strong>直接甩了我一个大大<em>undefined</em>，呵呵，都快崩溃了，后来想想，也不是完全没有办法，小程序也有类似的API来实现这些方法和属性，我要做的就是造一个window对象给它就可以了，老样子，直接挂载全局就行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">App(&#123;</div><div class="line">	window: &#123;&#125;,</div><div class="line">	location: &#123;</div><div class="line">		href: &apos;http://localhost/index.html?clear&apos;</div><div class="line">	&#125;,</div><div class="line">    onLaunch: function() &#123;</div><div class="line">        let _this = this;</div><div class="line">        getSystemInfo()</div><div class="line">            .then((res)=&gt;&#123;</div><div class="line">    		    _this.window.innerWidth = res.windowWidth;</div><div class="line">    		    _this.window.innerHeight = res.windowHeight;</div><div class="line">            &#125;)</div><div class="line">        _this.window.localStorage = &#123;&#125;;</div><div class="line">		_this.window.localStorage.setItem = wx.setStorageSync;</div><div class="line">		_this.window.localStorage.getItem = wx.getStorageSync;</div><div class="line">		_this.window.localStorage.clear = wx.removeStorageSync;</div><div class="line">    &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">//注入到页面或者模块</div><div class="line">let &#123;window, location&#125; = app;</div></pre></td></tr></table></figure>
+<h2 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h2><p>最后一个难题就是HTML了，首先HTML直接套在WXML上面是行不通的，结果是可以编译显示出来，但是完全失去了HTML各个标签的意义，比如div块级标签所具备的属性都不存在了，当然你可以通过WXSS添加属性来兼容，比如</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">div, p &#123;</div><div class="line">    display:blcok</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>我个人并不赞同这种做法，因为在HTML中img、canvas等等并没有要求闭合标签，但是WXML是严格要求每个标签都要有闭合，就是说你想通过添加WXSS属性来兼容的话，首先要手动加img和canvas的闭合标签(<strong>在小程序中img标签应该是image，不然还是无法显示图片</strong>)，其次就是怕官方下次更新迭代突然加入div这个组件，然后又要改版，烦~~<br>那么唯一的出路就是将HTML转成符合小程序的WXML出来，作为一个程序员，手动改也太掉价了。。。直接上工具，google查下，发现网上也有类似的工具出来，工具的转换原理是这样的话，首先HTML先转换成json对象，然后注入到模版，由模版生成。<br>但是有2个问题<br>1、转换出来的WXML是依赖模版渲染的，首先小程序的模版是不支持递归调用的，就是说，假如你的标签有6层嵌套的话，那么你需要复制6份模版出来，然后tmp1嵌套tmp2…temp6，这样的话你只能祈祷工具带来的模版有嵌套了足够多。<br>2、无法实现数据绑定，比如</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;div&gt;&#123;&#123;text&#125;&#125;&lt;/div&gt;</div><div class="line">//转换后原样输出了&#123;&#123;text&#125;&#125;</div><div class="line">&lt;view&gt;&#123;&#123;text&#125;&#125;&lt;/view&gt;</div></pre></td></tr></table></figure>
+<p>既然模版输出这条路走不通，那就只能借助node动态的输出WXML，思路和上面差不多，也是HTML生成json dom，然后递归渲染wxml节点，最后输出一份wxml文件，工具的实现在<a href="https://github.com/jayZOU/html2wxml" target="_blank" rel="external">这里</a>，细节就不多说了，目前还没有做canvas、audio、video标签的转换，有BUG的话直接提issue，最后求<strong>star</strong></p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p><strong>没事别BB</strong></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/javascript/" rel="tag"># javascript</a>
+          
+            <a href="/tags/component/" rel="tag"># component</a>
+          
+            <a href="/tags/小程序/" rel="tag"># 小程序</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/11/22/vue-schedule/" rel="next" title="vue-schedule">
+                <i class="fa fa-chevron-left"></i> vue-schedule
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/03/10/flex-simple/" rel="prev" title="flex基础布局详解">
+                flex基础布局详解 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Inhaltsverzeichnis
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Übersicht
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="jayzou" />
+          <p class="site-author-name" itemprop="name">jayzou</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name">Artikel</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">Kategorien</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name">Tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/jayZOU" target="_blank" title="GitHub">
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://segmentfault.com/u/jayzou" target="_blank" title="segmentfault">
+                  
+                  segmentfault
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/zou-shi-jie-69" target="_blank" title="知乎">
+                  
+                  知乎
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#起因"><span class="nav-number">1.</span> <span class="nav-text">起因</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CSS"><span class="nav-number">2.</span> <span class="nav-text">CSS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTML"><span class="nav-number">3.</span> <span class="nav-text">HTML</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">4.</span> <span class="nav-text">总结</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2015 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">jayzou</span>
+</div>
+
+
+<div class="powered-by">
+  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
