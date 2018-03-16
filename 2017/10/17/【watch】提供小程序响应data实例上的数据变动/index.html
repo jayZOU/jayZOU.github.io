@@ -1,0 +1,763 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="小程序,前端," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="小程序不提供类似于vue一样监听数据(vm.watch)，当数据改变时触发回调检测改变数据类型是否符合要求。 现在，使用wach即可扩展类似vm.watch的功能源码链接 install链接下载    Usage引入watch库1import Watch from &apos;../../libs/watch&apos;; 配置初始化检察对象12345678910111213141516171819202122232">
+<meta name="keywords" content="小程序,前端">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【watch】提供小程序响应data实例上的数据变动">
+<meta property="og:url" content="http://yoursite.com/2017/10/17/【watch】提供小程序响应data实例上的数据变动/index.html">
+<meta property="og:site_name" content="jayzou&#39;blog">
+<meta property="og:description" content="小程序不提供类似于vue一样监听数据(vm.watch)，当数据改变时触发回调检测改变数据类型是否符合要求。 现在，使用wach即可扩展类似vm.watch的功能源码链接 install链接下载    Usage引入watch库1import Watch from &apos;../../libs/watch&apos;; 配置初始化检察对象12345678910111213141516171819202122232">
+<meta property="og:image" content="https://sfault-image.b0.upaiyun.com/270/694/2706941227-59df1b4702528_articlex">
+<meta property="og:updated_time" content="2018-03-16T02:25:43.650Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="【watch】提供小程序响应data实例上的数据变动">
+<meta name="twitter:description" content="小程序不提供类似于vue一样监听数据(vm.watch)，当数据改变时触发回调检测改变数据类型是否符合要求。 现在，使用wach即可扩展类似vm.watch的功能源码链接 install链接下载    Usage引入watch库1import Watch from &apos;../../libs/watch&apos;; 配置初始化检察对象12345678910111213141516171819202122232">
+<meta name="twitter:image" content="https://sfault-image.b0.upaiyun.com/270/694/2706941227-59df1b4702528_articlex">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'jayzou'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/10/17/【watch】提供小程序响应data实例上的数据变动/"/>
+
+
+
+
+
+  <title>【watch】提供小程序响应data实例上的数据变动 | jayzou'blog</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">jayzou'blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/17/【watch】提供小程序响应data实例上的数据变动/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="jayzou">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="jayzou'blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">【watch】提供小程序响应data实例上的数据变动</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-10-17T00:00:00+08:00">
+                2017-10-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/自造轮子/" itemprop="url" rel="index">
+                    <span itemprop="name">自造轮子</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>小程序不提供类似于vue一样监听数据(<a href="https://cn.vuejs.org/v2/guide/computed.html#%E8%AE%A1%E7%AE%97%E5%B1%9E%E6%80%A7-vs-%E8%A2%AB%E8%A7%82%E5%AF%9F%E7%9A%84%E5%B1%9E%E6%80%A7" target="_blank" rel="external">vm.watch</a>)，当数据改变时触发回调检测改变数据类型是否符合要求。<br><img src="https://sfault-image.b0.upaiyun.com/270/694/2706941227-59df1b4702528_articlex" alt="enter image description here"></p>
+<p>现在，使用wach即可扩展类似vm.watch的功能<br><a href="/images/2706941227-59df1b4702528_articlex.png">源码链接</a></p>
+<h2 id="install"><a href="#install" class="headerlink" title="install"></a>install</h2><p><a href="https://raw.githubusercontent.com/jayZOU/watch/master/src/libs/watch.js" target="_blank" rel="external">链接下载</a>   </p>
+<h2 id="Usage"><a href="#Usage" class="headerlink" title="Usage"></a>Usage</h2><h3 id="引入watch库"><a href="#引入watch库" class="headerlink" title="引入watch库"></a>引入watch库</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> Watch <span class="keyword">from</span> <span class="string">'../../libs/watch'</span>;</div></pre></td></tr></table></figure>
+<h3 id="配置初始化检察对象"><a href="#配置初始化检察对象" class="headerlink" title="配置初始化检察对象"></a>配置初始化检察对象</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> Watch <span class="keyword">from</span> <span class="string">'../../libs/watch'</span>;</div><div class="line"><span class="keyword">let</span> watch;</div><div class="line">Page(&#123;</div><div class="line">    <span class="attr">data</span>: &#123;</div><div class="line">        <span class="attr">a</span>: <span class="string">'1'</span>,</div><div class="line">        <span class="attr">b</span>: &#123;</div><div class="line">            <span class="attr">c</span>: &#123;</div><div class="line">                <span class="attr">d</span>: <span class="number">33</span></div><div class="line">            &#125;,</div><div class="line">            <span class="attr">e</span>: [<span class="number">1</span>, <span class="number">2</span>, [<span class="number">3</span>, <span class="number">4</span>]]</div><div class="line">        &#125;</div><div class="line">    &#125;,</div><div class="line">    <span class="attr">watch</span>: &#123;</div><div class="line">        <span class="attr">a</span>: <span class="function"><span class="keyword">function</span>(<span class="params">val, oldVal</span>) </span>&#123;</div><div class="line">            <span class="built_in">console</span>.log(<span class="string">'new: %s, old: %s'</span>, val, oldVal);</div><div class="line">        &#125;,</div><div class="line">        <span class="string">'b.c.d'</span>: <span class="function"><span class="keyword">function</span>(<span class="params">val, oldVal</span>) </span>&#123;</div><div class="line">            <span class="built_in">console</span>.log(<span class="string">'new: %s, old: %s'</span>, val, oldVal);</div><div class="line">        &#125;,</div><div class="line">        <span class="string">'b.e[2][0]'</span>: <span class="function"><span class="keyword">function</span>(<span class="params">val, oldVal</span>) </span>&#123;</div><div class="line">            <span class="built_in">console</span>.log(<span class="string">'new: %s, old: %s'</span>, val, oldVal);</div><div class="line">        &#125;,</div><div class="line">        <span class="string">'b.e[3][4]'</span>: <span class="function"><span class="keyword">function</span>(<span class="params">val, oldVal</span>) </span>&#123;</div><div class="line">            <span class="built_in">console</span>.log(<span class="string">'new: %s, old: %s'</span>, val, oldVal);</div><div class="line">        &#125;,</div><div class="line">    &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>可以将需要监听的数据放入<strong>watch</strong>里面，当数据改变时推送相应的订阅事件(注：不在data里面的数据项不会放入观察者列表，比如上面的<code>&#39;b.e[3][4]&#39;</code>)<br><a id="more"></a> </p>
+<h3 id="实例化watch"><a href="#实例化watch" class="headerlink" title="实例化watch"></a>实例化watch</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">watch = <span class="keyword">new</span> Watch(<span class="keyword">this</span>);</div></pre></td></tr></table></figure>
+<p>当<strong>watch</strong>创建示例初始化时会把监听数据项放入观察者列表里面</p>
+<h3 id="改变数据"><a href="#改变数据" class="headerlink" title="改变数据"></a>改变数据</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">watch.setData(&#123;</div><div class="line">	<span class="attr">a</span>: <span class="number">2</span>,</div><div class="line">	<span class="string">'b.c.d'</span>: <span class="number">3</span>,</div><div class="line">	<span class="string">'b.e[2][0]'</span>: <span class="number">444</span>,</div><div class="line">	<span class="attr">c</span>: <span class="number">123</span></div><div class="line">&#125;)</div><div class="line"></div><div class="line">watch.data(<span class="string">'b.e[2][0]'</span>, <span class="number">555</span>);</div></pre></td></tr></table></figure>
+<h2 id="API"><a href="#API" class="headerlink" title="API"></a>API</h2><h3 id="watch-setData-obj"><a href="#watch-setData-obj" class="headerlink" title="watch.setData(obj)"></a>watch.setData(obj)</h3><p>等价于原生小程序<code>this.setData</code>，会改变数据并更新视图，也会触发回调（假如有配置）  </p>
+<p><strong>示例：</strong>   </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">watch.setData(&#123;</div><div class="line">	<span class="attr">a</span>: <span class="number">2</span>,</div><div class="line">	<span class="string">'b.c.d'</span>: <span class="number">3</span>,</div><div class="line">	<span class="string">'b.e[2][0]'</span>: <span class="number">444</span>,</div><div class="line">	<span class="attr">c</span>: <span class="number">123</span></div><div class="line">&#125;)</div><div class="line"><span class="comment">//等价于</span></div><div class="line"><span class="comment">// this.setData(&#123;</span></div><div class="line"><span class="comment">// 	a: 2,</span></div><div class="line"><span class="comment">// 	'b.c.d': 3,</span></div><div class="line"><span class="comment">// 	'b.e[2][0]': 444,</span></div><div class="line"><span class="comment">// 	c: 123</span></div><div class="line"><span class="comment">// &#125;)</span></div></pre></td></tr></table></figure>
+<h3 id="watch-data-key-val"><a href="#watch-data-key-val" class="headerlink" title="watch.data(key, val)"></a>watch.data(key, val)</h3><p>等价于原生小程序<code>this.data.a = 3</code>，之后改变数据不更新视图，也会触发回调（假如有配置）  </p>
+<p><strong>示例：</strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">watch.data(<span class="string">'b.e[2][0]'</span>, <span class="number">555</span>);</div><div class="line"><span class="comment">//等价于this.b.e[2][0] = 555</span></div></pre></td></tr></table></figure></p>
+<h3 id="watch-getter-data-path"><a href="#watch-getter-data-path" class="headerlink" title="watch.getter(data, path)"></a>watch.getter(data, path)</h3><p>能根据提供的路径深度获取数据  </p>
+<p><strong>示例：</strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">watch.get(&#123;</div><div class="line">        <span class="attr">a</span>: <span class="string">'1'</span>,</div><div class="line">        <span class="attr">b</span>: &#123;</div><div class="line">            <span class="attr">c</span>: &#123;</div><div class="line">                <span class="attr">d</span>: <span class="number">33</span></div><div class="line">            &#125;,</div><div class="line">            <span class="attr">e</span>: [<span class="number">1</span>, <span class="number">2</span>, [<span class="number">3</span>, <span class="number">4</span>]]</div><div class="line">        &#125;</div><div class="line">    &#125;, <span class="string">'b.e[2][0]'</span>);</div><div class="line"> <span class="comment">//3</span></div></pre></td></tr></table></figure></p>
+<h3 id="watch-unSubscribe-key"><a href="#watch-unSubscribe-key" class="headerlink" title="watch.unSubscribe(key)"></a>watch.unSubscribe(key)</h3><p>删除观察者，改变数据不触发回调  </p>
+<p><strong>示例：</strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">watch.unSubscribe(<span class="string">'b.e[2][0]'</span>);</div></pre></td></tr></table></figure></p>
+<h2 id="test"><a href="#test" class="headerlink" title="test"></a>test</h2><p><code>npm test</code>  </p>
+<h2 id="demo"><a href="#demo" class="headerlink" title="demo"></a>demo</h2><p><code>git clone https://github.com/jayZOU/watch.git</code><br>打开小程序开发工具，新建项目，定位目录到<strong>watch/src</strong></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/小程序/" rel="tag"># 小程序</a>
+          
+            <a href="/tags/前端/" rel="tag"># 前端</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/06/28/关于微信卡券与代金券的一些事/" rel="next" title="关于微信卡券与代金券的一些事">
+                <i class="fa fa-chevron-left"></i> 关于微信卡券与代金券的一些事
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/10/20/小程序测试方案初探/" rel="prev" title="小程序测试方案初探">
+                小程序测试方案初探 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="jayzou" />
+          <p class="site-author-name" itemprop="name">jayzou</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">16</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">categories</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">19</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/jayZOU" target="_blank" title="GitHub">
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://segmentfault.com/u/jayzou" target="_blank" title="segmentfault">
+                  
+                  segmentfault
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://zhihu.com/people/jayzouu" target="_blank" title="知乎">
+                  
+                  知乎
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#install"><span class="nav-number">1.</span> <span class="nav-text">install</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Usage"><span class="nav-number">2.</span> <span class="nav-text">Usage</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#引入watch库"><span class="nav-number">2.1.</span> <span class="nav-text">引入watch库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置初始化检察对象"><span class="nav-number">2.2.</span> <span class="nav-text">配置初始化检察对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实例化watch"><span class="nav-number">2.3.</span> <span class="nav-text">实例化watch</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#改变数据"><span class="nav-number">2.4.</span> <span class="nav-text">改变数据</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#API"><span class="nav-number">3.</span> <span class="nav-text">API</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#watch-setData-obj"><span class="nav-number">3.1.</span> <span class="nav-text">watch.setData(obj)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#watch-data-key-val"><span class="nav-number">3.2.</span> <span class="nav-text">watch.data(key, val)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#watch-getter-data-path"><span class="nav-number">3.3.</span> <span class="nav-text">watch.getter(data, path)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#watch-unSubscribe-key"><span class="nav-number">3.4.</span> <span class="nav-text">watch.unSubscribe(key)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#test"><span class="nav-number">4.</span> <span class="nav-text">test</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#demo"><span class="nav-number">5.</span> <span class="nav-text">demo</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2015 - 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">jayzou</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

@@ -1,0 +1,774 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="源码,前端," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="这篇文章主要介绍下笔者看源码的一些心得和方式，由于笔者看的大部分是前端项目，当然也看过一些其它领域的源码，不过不多，所以内容主要还是以前端项目为主 了解和熟悉 在准备看一个开源项目源码的时候先去熟悉下这个项目的背景、功能以及相应的API。这步为了理解整个项目的功能做准备，也是为了后面重点看哪些模块做准备 查看项目的README.md文件。有些项目会在将设计文档和架构图放到md文件上，这样会让你宏观">
+<meta name="keywords" content="源码,前端">
+<meta property="og:type" content="article">
+<meta property="og:title" content="阅读前端项目源码的正确姿势">
+<meta property="og:url" content="http://yoursite.com/2018/03/14/阅读前端项目源码的正确姿势/index.html">
+<meta property="og:site_name" content="jayzou&#39;blog">
+<meta property="og:description" content="这篇文章主要介绍下笔者看源码的一些心得和方式，由于笔者看的大部分是前端项目，当然也看过一些其它领域的源码，不过不多，所以内容主要还是以前端项目为主 了解和熟悉 在准备看一个开源项目源码的时候先去熟悉下这个项目的背景、功能以及相应的API。这步为了理解整个项目的功能做准备，也是为了后面重点看哪些模块做准备 查看项目的README.md文件。有些项目会在将设计文档和架构图放到md文件上，这样会让你宏观">
+<meta property="og:image" content="http://yoursite.com/images/284327910-5aa78708a2934_articlex.png">
+<meta property="og:image" content="http://yoursite.com/images/4209254232-5aa78732037e2_articlex.png">
+<meta property="og:image" content="http://yoursite.com/images/4107723135-5aa78749e9af9_articlex.png">
+<meta property="og:updated_time" content="2018-03-16T02:19:31.308Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="阅读前端项目源码的正确姿势">
+<meta name="twitter:description" content="这篇文章主要介绍下笔者看源码的一些心得和方式，由于笔者看的大部分是前端项目，当然也看过一些其它领域的源码，不过不多，所以内容主要还是以前端项目为主 了解和熟悉 在准备看一个开源项目源码的时候先去熟悉下这个项目的背景、功能以及相应的API。这步为了理解整个项目的功能做准备，也是为了后面重点看哪些模块做准备 查看项目的README.md文件。有些项目会在将设计文档和架构图放到md文件上，这样会让你宏观">
+<meta name="twitter:image" content="http://yoursite.com/images/284327910-5aa78708a2934_articlex.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'jayzou'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/03/14/阅读前端项目源码的正确姿势/"/>
+
+
+
+
+
+  <title>阅读前端项目源码的正确姿势 | jayzou'blog</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">jayzou'blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/14/阅读前端项目源码的正确姿势/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="jayzou">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="jayzou'blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">阅读前端项目源码的正确姿势</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-14T00:00:00+08:00">
+                2018-03-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>这篇文章主要介绍下笔者看源码的一些心得和方式，由于笔者看的大部分是前端项目，当然也看过一些其它领域的源码，不过不多，所以内容主要还是以前端项目为主</p>
+<h2 id="了解和熟悉"><a href="#了解和熟悉" class="headerlink" title="了解和熟悉"></a>了解和熟悉</h2><ol>
+<li>在准备看一个开源项目源码的时候先去熟悉下这个项目的<strong>背景</strong>、<strong>功能</strong>以及相应的<strong>API</strong>。这步为了理解整个项目的功能做准备，也是为了后面重点看哪些模块做准备</li>
+<li>查看项目的<strong>README.md</strong>文件。有些项目会在将设计文档和架构图放到md文件上，这样会让你宏观上对一些概念有些认识。例如<a href="https://github.com/mweststrate/immer" title="immer" target="_blank" rel="external">immer</a></li>
+<li>查看项目整体的文件结构。比如下面提到一些重点需要查看的文件<ul>
+<li>package.json，可以从这个文件看到整个项目的<strong>入口文件、开发/测试/发布编译</strong>的各种命令，也可以了解到项目的<strong>依赖库、工具</strong>以及<strong>框架</strong>等等。</li>
+<li>webpack/gulp/rollup配置文件，从这个文件里面可以看到项目整体的工具配置，也包含<strong>入口文件</strong>以及<strong>编译之后的代码文件</strong>，以及一些配置项的功能</li>
+</ul>
+</li>
+<li>知道一些默认命名的文件规则，比如<ul>
+<li><strong>dist</strong>，表示编译之后的源文件</li>
+<li><strong>src</strong>，源代码文件<ul>
+<li>index.xx，一般会用来作为前端的入口文件</li>
+<li>app.xx、server.xx，一般会用来做后端的入口文件</li>
+</ul>
+</li>
+<li><strong>static</strong>，静态文件，前端项目一般都会用来作为给浏览器运行的入口文件</li>
+<li><strong>test</strong>，测试用例文件夹<ul>
+<li>e2e，端对端测试</li>
+<li>unit，单元测试</li>
+</ul>
+</li>
+<li>…<br>这期间哪怕你遇到一些文件你不知道有什么用，有2个方式可以了解到</li>
+</ul>
+</li>
+</ol>
+<ul>
+<li>直接用google搜该文件名，往往能找到相关答案，比如<strong>.eslintrc.js</strong><br><img src="/images/284327910-5aa78708a2934_articlex.png" alt="图片描述"></li>
+<li>进去看文件内容，一般会有注释，如果都没有的话说明这个文件往往不是很重要，可以先忽略<a id="more"></a> 
+<h2 id="上手"><a href="#上手" class="headerlink" title="上手"></a>上手</h2>做完前面的准备工作后，这时候你应该对这个项目有一个大致的了解，这里你可以先简单写写你对这个项目的一些<strong>疑惑</strong>，请注意！！！这里的问题很重要，因为<strong>看源码必须要带着问题去看</strong>，不然你会摸不到方向。至于这里的问题，你可以先列个清单，比如<a href="https://github.com/Meituan-Dianping/mpvue" title="mpvue" target="_blank" rel="external">mpvue</a></li>
+<li>小程序是不支持npm引入库文件的，但是mpvue支持，是怎么做到的呢？</li>
+<li>小程序和vue都有自己的生命周期，框架是怎么去兼容？</li>
+<li>mpvue是怎么样让小程序支持单文件组件(.vue)<br>…..</li>
+</ul>
+<p>接着我可以开始正式的看源码了，这里容我说句题外话。有人可能喜欢先从第一个<strong>commit</strong>看起，因为第一个commit的源码会比较简单易懂，但是我并不喜欢这样，因为第一个commit的代码往往跟现有的文档差距比较大（除非这个项目比较新），无法了解到整体的结构，而且第一个commit的代码可能跟最新的代码在架构上面有着翻天覆地的变化，反而做了一些无用功。</p>
+<p>1.入口文件，几乎所有的项目都会有一个入口文件，其实你做上面的准备工作之后，基本你都能找到入口文件，无非就是从2个方面入手</p>
+<ul>
+<li>package.json，因为是入口文件，一般都会使用默认命名，比如index.xx    app.xx之类。</li>
+<li>工具的配置文件，比如webpack的entry字段，gulp.src执行的文件路径等等</li>
+</ul>
+<p>2.以模块为单元开始阅读，带着你上面准备的问题，抽丝剥茧、层层深入。这里分享一个小技巧，可以先Fork下一个项目，在阅读的过程中不断加上自己的注释和理解，一个好的项目往往在结构上面都是很清晰，例如</p>
+<p><img src="/images/4209254232-5aa78732037e2_articlex.png" alt="图片描述"></p>
+<p>好的源码是可以从命名上面都能直接给读者一些信息，方便阅读。</p>
+<p>3.当你深入读到某一块源码不理解，先试着在网上找找有没有相关的资料学习下，实在找不到可以先标记下放着，等你看到后面再回过头来看不理解的地方或者会茅塞顿开。</p>
+<h2 id="技巧"><a href="#技巧" class="headerlink" title="技巧"></a>技巧</h2><p>1.在你阅读的过程中，如果发现一些代码片段很精妙的可以记录一下，或者尝试下有没有更好的方式去实现，也许你就成了这个项目contributors了</p>
+<p>2.当你不了解某个模块的作用时，你可以去看看<strong>测试用例</strong>，特别是单元测试(unit)，测试用例包含对输入输出的校验，从这里可以快速了解到模块相关的作用</p>
+<p><img src="/images/4107723135-5aa78749e9af9_articlex.png" alt="图片描述"></p>
+<p>3.要学会给项目打断点，在边读边运行项目源码的过程中，通过断点输出当前执行的堆栈信息对你理解项目也是有很大的帮助</p>
+<h2 id="建议"><a href="#建议" class="headerlink" title="建议"></a>建议</h2><p>初学者在github上面阅读源码的时候可以先从一些小的项目入手，比如实现了某个功能或者组件这样的项目，先不要看一些大而全的框架，比较容易上手，当你积累了一定的经验后再尝试下看框架的源码。<br>另外搭配一些工具来阅读或者会更好，笔者推荐一些工具给大家</p>
+<ul>
+<li><a href="https://chrome.google.com/webstore/detail/octotree/bkhaagjahfmjljalopjnoealnfndnagc?hl=en-US" title="Octotree" target="_blank" rel="external">Octotree</a>，浏览器扩展，在github上面显示代码树，对你了解整个项目结构有着非常大的帮助</li>
+<li>webstorm，这个看个人喜好吧，笔者比较喜欢WS，主要是里面的工具比较全面，比如支持typescript、babel等等一些前端经常用到的工具</li>
+<li>SourceTree，git可视化客户端工具，如果你喜欢从第一个commit开始看，那么这个工具对你比较有帮助，看看快速了解到每个版本提交的内容以及源码变更记录，笔者以前比较喜欢用这个，但是后面WS有自带的可视化工具之后就没用过了。</li>
+</ul>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>学习项目源码不是一蹴而就，往往周期比较长，最好的就是能够将项目Fork下来，单独准备好一份笔记，慢慢去研究、记录看源码过程中的一些心得，到最后看完再回过头来你能说出它的架构和设计，那么我觉得这个学习是有意义，所以我认为<strong>阅读源码的终究目标是了解项目，最终能实现它</strong></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/源码/" rel="tag"># 源码</a>
+          
+            <a href="/tags/前端/" rel="tag"># 前端</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/10/20/小程序测试方案初探/" rel="next" title="小程序测试方案初探">
+                <i class="fa fa-chevron-left"></i> 小程序测试方案初探
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="jayzou" />
+          <p class="site-author-name" itemprop="name">jayzou</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">16</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">categories</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">19</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/jayZOU" target="_blank" title="GitHub">
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://segmentfault.com/u/jayzou" target="_blank" title="segmentfault">
+                  
+                  segmentfault
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://zhihu.com/people/jayzouu" target="_blank" title="知乎">
+                  
+                  知乎
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#了解和熟悉"><span class="nav-number">1.</span> <span class="nav-text">了解和熟悉</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#上手"><span class="nav-number">2.</span> <span class="nav-text">上手</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#技巧"><span class="nav-number">3.</span> <span class="nav-text">技巧</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#建议"><span class="nav-number">4.</span> <span class="nav-text">建议</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">5.</span> <span class="nav-text">总结</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2015 - 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">jayzou</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
