@@ -200,7 +200,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Startseite
+            Home
           </a>
         </li>
       
@@ -210,7 +210,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archiv
+            Archives
           </a>
         </li>
       
@@ -253,6 +253,564 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/14/阅读前端项目源码的正确姿势/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="jayzou">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="jayzou'blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/03/14/阅读前端项目源码的正确姿势/" itemprop="url">阅读前端项目源码的正确姿势</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-14T00:00:00+08:00">
+                2018-03-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>这篇文章主要介绍下笔者看源码的一些心得和方式，由于笔者看的大部分是前端项目，当然也看过一些其它领域的源码，不过不多，所以内容主要还是以前端项目为主</p>
+<h2 id="了解和熟悉"><a href="#了解和熟悉" class="headerlink" title="了解和熟悉"></a>了解和熟悉</h2><ol>
+<li>在准备看一个开源项目源码的时候先去熟悉下这个项目的<strong>背景</strong>、<strong>功能</strong>以及相应的<strong>API</strong>。这步为了理解整个项目的功能做准备，也是为了后面重点看哪些模块做准备</li>
+<li>查看项目的<strong>README.md</strong>文件。有些项目会在将设计文档和架构图放到md文件上，这样会让你宏观上对一些概念有些认识。例如<a href="https://github.com/mweststrate/immer" title="immer" target="_blank" rel="external">immer</a></li>
+<li>查看项目整体的文件结构。比如下面提到一些重点需要查看的文件<ul>
+<li>package.json，可以从这个文件看到整个项目的<strong>入口文件、开发/测试/发布编译</strong>的各种命令，也可以了解到项目的<strong>依赖库、工具</strong>以及<strong>框架</strong>等等。</li>
+<li>webpack/gulp/rollup配置文件，从这个文件里面可以看到项目整体的工具配置，也包含<strong>入口文件</strong>以及<strong>编译之后的代码文件</strong>，以及一些配置项的功能</li>
+</ul>
+</li>
+<li>知道一些默认命名的文件规则，比如<ul>
+<li><strong>dist</strong>，表示编译之后的源文件</li>
+<li><strong>src</strong>，源代码文件<ul>
+<li>index.xx，一般会用来作为前端的入口文件</li>
+<li>app.xx、server.xx，一般会用来做后端的入口文件</li>
+</ul>
+</li>
+<li><strong>static</strong>，静态文件，前端项目一般都会用来作为给浏览器运行的入口文件</li>
+<li><strong>test</strong>，测试用例文件夹<ul>
+<li>e2e，端对端测试</li>
+<li>unit，单元测试</li>
+</ul>
+</li>
+<li>…<br>这期间哪怕你遇到一些文件你不知道有什么用，有2个方式可以了解到</li>
+</ul>
+</li>
+</ol>
+<ul>
+<li>直接用google搜该文件名，往往能找到相关答案，比如<strong>.eslintrc.js</strong><br><img src="/images/284327910-5aa78708a2934_articlex.png" alt="图片描述"></li>
+<li>进去看文件内容，一般会有注释，如果都没有的话说明这个文件往往不是很重要，可以先忽略
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/03/14/阅读前端项目源码的正确姿势/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/20/小程序测试方案初探/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="jayzou">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="jayzou'blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/10/20/小程序测试方案初探/" itemprop="url">小程序测试方案初探</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-10-20T00:00:00+08:00">
+                2017-10-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/小程序/" itemprop="url" rel="index">
+                    <span itemprop="name">小程序</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>2017年1月9号微信小程序正式上线，小程序不需要安装就能使用，依托微信强大的生态环境，能做到很多H5所不能做的事情。从微信小程序发布这段时间，陆陆续续开发了不少小程序相关的项目，总结了一些通用性的组件，但是对于小程序如何做测试，依然是一头雾水，直到做了不少的项目，积累的一些经验和开源库之后才理清如何做测试，下面将会介绍如何对小程序做UI测试和单元测试。</p>
+<h2 id="工具的准备"><a href="#工具的准备" class="headerlink" title="工具的准备"></a>工具的准备</h2><ul>
+<li><a href="https://nodejs.org/en/" target="_blank" rel="external">node</a> </li>
+<li><a href="https://github.com/GoogleChrome/puppeteer" target="_blank" rel="external">puppeteer</a></li>
+<li><a href="https://github.com/chemzqm/wept" target="_blank" rel="external">wept</a></li>
+<li><a href="https://github.com/mochajs/mocha" target="_blank" rel="external">mocha</a></li>
+<li><a href="https://github.com/chaijs/chai" target="_blank" rel="external">chai</a></li>
+</ul>
+<h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p><strong>node</strong><br>这个应该不用多做介绍了，不过这次demo中要求node版本应该大于7.6.0，因为<strong>puppeteer</strong>要求最低版本是v6.4.0，但是因为官方示例中大量使用 async/await 等新特性，所以需要使用 v7.6.0 或更高版本的 Node，async/await能让异步回调代码更加简洁，不然整个代码都是<code>promise.then</code><br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/10/20/小程序测试方案初探/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/17/【watch】提供小程序响应data实例上的数据变动/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="jayzou">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="jayzou'blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/10/17/【watch】提供小程序响应data实例上的数据变动/" itemprop="url">【watch】提供小程序响应data实例上的数据变动</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-10-17T00:00:00+08:00">
+                2017-10-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/自造轮子/" itemprop="url" rel="index">
+                    <span itemprop="name">自造轮子</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>小程序不提供类似于vue一样监听数据(<a href="https://cn.vuejs.org/v2/guide/computed.html#%E8%AE%A1%E7%AE%97%E5%B1%9E%E6%80%A7-vs-%E8%A2%AB%E8%A7%82%E5%AF%9F%E7%9A%84%E5%B1%9E%E6%80%A7" target="_blank" rel="external">vm.watch</a>)，当数据改变时触发回调检测改变数据类型是否符合要求。<br><img src="https://sfault-image.b0.upaiyun.com/270/694/2706941227-59df1b4702528_articlex" alt="enter image description here"></p>
+<p>现在，使用wach即可扩展类似vm.watch的功能<br><a href="/images/2706941227-59df1b4702528_articlex.png">源码链接</a></p>
+<h2 id="install"><a href="#install" class="headerlink" title="install"></a>install</h2><p><a href="https://raw.githubusercontent.com/jayZOU/watch/master/src/libs/watch.js" target="_blank" rel="external">链接下载</a>   </p>
+<h2 id="Usage"><a href="#Usage" class="headerlink" title="Usage"></a>Usage</h2><h3 id="引入watch库"><a href="#引入watch库" class="headerlink" title="引入watch库"></a>引入watch库</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> Watch <span class="keyword">from</span> <span class="string">'../../libs/watch'</span>;</div></pre></td></tr></table></figure>
+<h3 id="配置初始化检察对象"><a href="#配置初始化检察对象" class="headerlink" title="配置初始化检察对象"></a>配置初始化检察对象</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> Watch <span class="keyword">from</span> <span class="string">'../../libs/watch'</span>;</div><div class="line"><span class="keyword">let</span> watch;</div><div class="line">Page(&#123;</div><div class="line">    <span class="attr">data</span>: &#123;</div><div class="line">        <span class="attr">a</span>: <span class="string">'1'</span>,</div><div class="line">        <span class="attr">b</span>: &#123;</div><div class="line">            <span class="attr">c</span>: &#123;</div><div class="line">                <span class="attr">d</span>: <span class="number">33</span></div><div class="line">            &#125;,</div><div class="line">            <span class="attr">e</span>: [<span class="number">1</span>, <span class="number">2</span>, [<span class="number">3</span>, <span class="number">4</span>]]</div><div class="line">        &#125;</div><div class="line">    &#125;,</div><div class="line">    <span class="attr">watch</span>: &#123;</div><div class="line">        <span class="attr">a</span>: <span class="function"><span class="keyword">function</span>(<span class="params">val, oldVal</span>) </span>&#123;</div><div class="line">            <span class="built_in">console</span>.log(<span class="string">'new: %s, old: %s'</span>, val, oldVal);</div><div class="line">        &#125;,</div><div class="line">        <span class="string">'b.c.d'</span>: <span class="function"><span class="keyword">function</span>(<span class="params">val, oldVal</span>) </span>&#123;</div><div class="line">            <span class="built_in">console</span>.log(<span class="string">'new: %s, old: %s'</span>, val, oldVal);</div><div class="line">        &#125;,</div><div class="line">        <span class="string">'b.e[2][0]'</span>: <span class="function"><span class="keyword">function</span>(<span class="params">val, oldVal</span>) </span>&#123;</div><div class="line">            <span class="built_in">console</span>.log(<span class="string">'new: %s, old: %s'</span>, val, oldVal);</div><div class="line">        &#125;,</div><div class="line">        <span class="string">'b.e[3][4]'</span>: <span class="function"><span class="keyword">function</span>(<span class="params">val, oldVal</span>) </span>&#123;</div><div class="line">            <span class="built_in">console</span>.log(<span class="string">'new: %s, old: %s'</span>, val, oldVal);</div><div class="line">        &#125;,</div><div class="line">    &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>可以将需要监听的数据放入<strong>watch</strong>里面，当数据改变时推送相应的订阅事件(注：不在data里面的数据项不会放入观察者列表，比如上面的<code>&#39;b.e[3][4]&#39;</code>)<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/10/17/【watch】提供小程序响应data实例上的数据变动/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/28/关于微信卡券与代金券的一些事/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="jayzou">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="jayzou'blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/06/28/关于微信卡券与代金券的一些事/" itemprop="url">关于微信卡券与代金券的一些事</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-06-28T00:00:00+08:00">
+                2017-06-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>最近公司有个项目需要在H5上面发放代金券，研究了好几天微信公众平台和商户平台的文档，梳理下微信卡券和代金券之间的联系。以下微信公众平台简称<strong>mp平台</strong>，商户平台简称<strong>pay平台</strong>。<br><a href="https://mp.weixin.qq.com/wiki?t=resource/res_main&amp;id=mp1421141115" target="_blank" rel="external">mp平台开发文档</a><br><a href="https://pay.weixin.qq.com/wiki/doc/api/tools/sp_coupon.php?chapter=12_1" target="_blank" rel="external">pay平台开发文档</a></p>
+<h2 id="mp与pay的关系"><a href="#mp与pay的关系" class="headerlink" title="mp与pay的关系"></a>mp与pay的关系</h2><p>严格来讲，mp和pay平台是属于两套不一样的系统，它们直接并不存在什么直接关系。非要说有什么关联的话，那么大概有2点：</p>
+<ol>
+<li>pay平台发放代金券需要用户openid，而获取openid是需要走oauth通道，mp平台提供</li>
+<li>pay平台发放代金券需要验证<strong>appid</strong>（公众号ID）和<strong>mchid</strong>（商户ID）之间的关系，即mp平台的帐号是微信为发券方商户分配的帐号，才能调起接口发券。</li>
+</ol>
+<h2 id="pay平台发券方式"><a href="#pay平台发券方式" class="headerlink" title="pay平台发券方式"></a>pay平台发券方式</h2><p>想要在H5上面发券，一般来讲有2种形式</p>
+<ol>
+<li><strong>通过二维码发放</strong><br>优点：就是<strong>开发量小</strong>，不需要后台，只需要把pay平台生成的代金券二维码转成链接放到H5即可<br>缺点：就是<strong>无法获取发放成功/失败的状态</strong>，在H5上面也不知道剩余数量。</li>
+<li><strong>通过API接口发放</strong><br>优点：可以准确获取到<strong>发放状态</strong>和<strong>数量</strong>，可自由搭配<strong>各种营销规则</strong>进行发券，比如<strong>分时段发放</strong>(pay券没有这个规则)<br>缺点：<strong>开发量大</strong>，主要集中在后台，做各种签名、配置、接口请求带证书等等</li>
+</ol>
+<h2 id="代金券插卡包界面"><a href="#代金券插卡包界面" class="headerlink" title="代金券插卡包界面"></a>代金券插卡包界面</h2><p>关于代金券插卡包，pay平台有新的规则，具体事项可戳<a href="https://pay.weixin.qq.com/index.php/public/cms/content_detail?platformType=0&amp;lang=zh&amp;id=48200" target="_blank" rel="external">这里</a></p>
+<h2 id="消息模版"><a href="#消息模版" class="headerlink" title="消息模版"></a>消息模版</h2><p>代金券领取成功之后不再有任何模版消息下发给用户，也就是说用户除了在H5上面领券之后并没有任何渠道可以获取到这张券的信息，可以自行调起mp平台接口下发一个模版消息，需要用户关注相应公众号</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>代金券与微信卡券其实根本不一样，两者属于不同平台下的一个功能</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/07/img2html/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -282,7 +840,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-07T00:00:00+08:00">
                 2017-04-07
@@ -303,7 +861,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -364,7 +922,7 @@
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/04/07/img2html/#more" rel="contents">
-              Weiterlesen &raquo;
+              Read more &raquo;
             </a>
           </div>
           <!--/noindex-->
@@ -438,7 +996,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-10T00:00:00+08:00">
                 2017-03-10
@@ -459,7 +1017,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -506,7 +1064,7 @@
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/03/10/flex-simple/#more" rel="contents">
-              Weiterlesen &raquo;
+              Read more &raquo;
             </a>
           </div>
           <!--/noindex-->
@@ -580,7 +1138,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-03T00:00:00+08:00">
                 2017-03-03
@@ -601,7 +1159,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -652,7 +1210,7 @@
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/03/03/html2wxml/#more" rel="contents">
-              Weiterlesen &raquo;
+              Read more &raquo;
             </a>
           </div>
           <!--/noindex-->
@@ -726,7 +1284,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-11-22T00:00:00+08:00">
                 2016-11-22
@@ -747,7 +1305,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -794,7 +1352,7 @@
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2016/11/22/vue-schedule/#more" rel="contents">
-              Weiterlesen &raquo;
+              Read more &raquo;
             </a>
           </div>
           <!--/noindex-->
@@ -868,7 +1426,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-11-11T00:00:00+08:00">
                 2016-11-11
@@ -889,7 +1447,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -937,7 +1495,7 @@
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2016/11/11/setTimeout/#more" rel="contents">
-              Weiterlesen &raquo;
+              Read more &raquo;
             </a>
           </div>
           <!--/noindex-->
@@ -1011,7 +1569,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-09-06T00:00:00+08:00">
                 2016-09-06
@@ -1032,7 +1590,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -1078,578 +1636,7 @@
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2016/09/06/node-grade/#more" rel="contents">
-              Weiterlesen &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/12/16/react-native-layout/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="jayzou">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="jayzou'blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2015/12/16/react-native-layout/" itemprop="url">【布局篇】react-native</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2015-12-16T00:00:00+08:00">
-                2015-12-16
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">in</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/分享/" itemprop="url" rel="index">
-                    <span itemprop="name">分享</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>这里以三种经典布局来讲解react-native布局概念，主要以flexbox为主，react native中有两个基本元素&lt; View &gt;与&lt; Text &gt;，分别类似于web端div和span，用于布局和修饰。需要注意的是，react native不是所有的CSS属性都支持，这里有react native所支持的<a href="https://facebook.github.io/react-native/docs/flexbox.html#content" target="_blank" rel="external">CSS属性</a></p>
-<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><p>在JSX中写样式还是有点不习惯，这里使用<a href="https://github.com/sabeurthabti/react-native-css" target="_blank" rel="external">react-native-css</a>模块来编写样式，安装、使用过程如下</p>
-<pre><code>npm install react-native-css -g 
-react-native-css -i style.css -o style.js --watch
-</code></pre>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2015/12/16/react-native-layout/#more" rel="contents">
-              Weiterlesen &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/12/08/react-native-simple/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="jayzou">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="jayzou'blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2015/12/08/react-native-simple/" itemprop="url">【入门篇】react-native</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2015-12-08T00:00:00+08:00">
-                2015-12-08
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">in</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/分享/" itemprop="url" rel="index">
-                    <span itemprop="name">分享</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>这里以编写react-native android应用程序作为例子来讲解（为毛不用IOS？因为没有mac，也不想装黑苹果）</p>
-<h2 id="搭建基础环境"><a href="#搭建基础环境" class="headerlink" title="搭建基础环境"></a>搭建基础环境</h2><p><a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html" target="_blank" rel="external">JDK</a>（必须，不解释）<br><a href="http://developer.android.com/intl/zh-cn/sdk/installing/index.html" target="_blank" rel="external">SDK</a>（建议使用<a href="http://developer.android.com/intl/zh-cn/sdk/index.html" target="_blank" rel="external">Android Studio</a>，集成SDK以及模拟器）<br><a href="https://www.genymotion.com/" target="_blank" rel="external">genymotion</a>（如果是使用真机或者Android Studio自带的模拟器，可以选择不装）<br><a href="https://github.com/creationix/nvm" target="_blank" rel="external">NVM</a>（node版本控制器，需要node4.0以上版本）</p>
-<p>以上配置不是必须，可自行选择适合自己的环境，部分安装过程可能会涉及到翻墙，需要配置代理</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2015/12/08/react-native-simple/#more" rel="contents">
-              Weiterlesen &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/10/25/slide/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="jayzou">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="jayzou'blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2015/10/25/slide/" itemprop="url">滑屏组件</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2015-10-25T00:00:00+08:00">
-                2015-10-25
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">in</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/自造轮子/" itemprop="url" rel="index">
-                    <span itemprop="name">自造轮子</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="slide"><a href="#slide" class="headerlink" title="slide"></a>slide</h1><p>滑屏组件</p>
-<ul>
-<li>自定义滑屏组件，可定制滑屏动画</li>
-<li>可控制每屏动画效果</li>
-</ul>
-<h2 id="Install"><a href="#Install" class="headerlink" title="Install"></a>Install</h2><pre><code>git clone https://github.com/jayZOU/slide.git
-npm install
-gulp
-</code></pre>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2015/10/25/slide/#more" rel="contents">
-              Weiterlesen &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/09/15/preload/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="jayzou">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="jayzou'blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2015/09/15/preload/" itemprop="url">资源预加载组件</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2015-09-15T00:00:00+08:00">
-                2015-09-15
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">in</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/自造轮子/" itemprop="url" rel="index">
-                    <span itemprop="name">自造轮子</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="preload"><a href="#preload" class="headerlink" title="preload"></a>preload</h1><p>静态资源预加载组件  </p>
-<h2 id="features"><a href="#features" class="headerlink" title="features"></a>features</h2><ol>
-<li>每个模块均可单独引入  </li>
-<li>支持amd、cjs、es、iife、umd多种形式使用  </li>
-<li>打包三个模块压缩之后整体大小小于4KB  </li>
-</ol>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2015/09/15/preload/#more" rel="contents">
-              Weiterlesen &raquo;
+              Read more &raquo;
             </a>
           </div>
           <!--/noindex-->
@@ -1734,8 +1721,8 @@ gulp
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">12</span>
-                <span class="site-state-item-name">Artikel</span>
+                <span class="site-state-item-count">16</span>
+                <span class="site-state-item-name">posts</span>
               </a>
             </div>
           
@@ -1745,8 +1732,8 @@ gulp
             
             <div class="site-state-item site-state-categories">
               
-                <span class="site-state-item-count">2</span>
-                <span class="site-state-item-name">Kategorien</span>
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">categories</span>
               
             </div>
           
@@ -1756,8 +1743,8 @@ gulp
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">12</span>
-                <span class="site-state-item-name">Tags</span>
+                <span class="site-state-item-count">19</span>
+                <span class="site-state-item-name">tags</span>
               </a>
             </div>
           
@@ -1784,7 +1771,7 @@ gulp
               </span>
             
               <span class="links-of-author-item">
-                <a href="https://www.zhihu.com/people/zou-shi-jie-69" target="_blank" title="知乎">
+                <a href="https://zhihu.com/people/jayzouu" target="_blank" title="知乎">
                   
                   知乎
                 </a>
@@ -1821,7 +1808,7 @@ gulp
         <div class="copyright" >
   
   &copy;  2015 - 
-  <span itemprop="copyrightYear">2017</span>
+  <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
@@ -1830,7 +1817,7 @@ gulp
 
 
 <div class="powered-by">
-  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
 </div>
 
 <div class="theme-info">
