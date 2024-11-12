@@ -1,0 +1,113 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+html {
+    background: rgb(0, 169, 234) url(../img/bg.png) 0 0 repeat;
+    background-size: 750px auto;
+}
+body {
+    font-family: Helvetica;
+
+}
+.main {
+    padding: 106px 38px;
+}
+.main-hd {
+    color: rgb(255, 255, 255);
+    font-size: 56px;
+    font-weight: 700;
+    line-height: 58px;
+    letter-spacing: 0px;
+    text-align: center;
+}
+.main-bd {
+    margin-top: 32px;
+}
+.main-block {
+    padding-bottom: 60px;
+    margin: 0 auto;
+}
+.main-block-title {
+    width: 602px;
+    height: 180px;
+    margin: 0 auto;
+}
+.main-block-title-img {
+    width: 100%;
+}
+.main-block-content {
+    margin-top: 24px;
+    box-sizing: border-box;
+    border: 1px solid rgb(255, 255, 255);
+    border-radius: 32px;
+    background: rgb(255, 255, 255);
+    padding: 60px 40px;
+}
+.main-block-content-li {
+    display: flex;
+    align-items: flex-start;
+    color: rgb(0, 0, 0);
+    padding-bottom: 60px;
+}
+.main-block-content .main-block-content-li:last-child {
+    padding-bottom: 0;
+}
+.main-block-content-hd {
+    margin-right: 24px;
+    width: 80px;
+    height: 80px;
+}
+.main-block-title-img {
+    width: 100%;
+}
+.main-block-content-name {
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 30px;
+}
+.main-block-content-name-wrap {
+    display: inline-block;
+    position: relative;
+}
+.main-block-content-name-txt {
+    position: relative;
+    z-index: 1;
+}
+.main-block-content-name-bg {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 12px;
+    width: 100%;
+    background-color: rgb(255, 229, 0);
+    z-index: 0;
+}
+
+.main-block-content-intro{
+    font-size: 28px;
+    font-weight: 400;
+    line-height: 41px;
+    margin-top: 6px;
+}
+.main-block-content-btn {
+    margin-top: 32px;
+    width: 394px;
+    height: 72px;
+    border-radius: 12px;
+    background: rgb(0, 169, 234);
+    color: rgb(255, 255, 255);
+    font-size: 28px;
+    font-weight: 500;
+    line-height: 72px;
+    text-align: center;
+}
+.main-block-content-code {
+    margin-top: 32px;
+    margin-left: 37px;
+}
+.main-block-content-code-img {
+    width: 316px;
+    height: 316px;
+}
